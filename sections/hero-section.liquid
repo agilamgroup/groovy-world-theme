@@ -1,0 +1,86 @@
+{% comment %}
+  Hero Section - Groovy World Homepage
+  Replicates the WordPress homepage hero section
+{% endcomment %}
+
+<div class="hero-section" style="min-height: 100vh; background: #ffffff; display: flex; align-items: center; padding: 40px 20px;">
+  <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+    
+    <div style="display: flex; flex-direction: column; gap: 30px;">
+      <!-- Badge -->
+      <div style="display: inline-block; padding: 8px 16px; border: 2px solid #e85122; border-radius: 20px; color: #e85122; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content;">
+        Ready, Set, Write with Groovy
+      </div>
+      
+      <!-- Title -->
+      <h1 style="font-family: 'Assistant', sans-serif; font-size: 3.5rem; font-weight: 700; line-height: 1.1; color: #24262B; margin: 0;">
+        Unlock the Joy of <br>
+        Writing with<br>
+        Groovy <span style="color: #2465aa;">Books</span>
+      </h1>
+      
+      <!-- Description -->
+      <p style="font-family: 'Assistant', sans-serif; font-size: 1.1rem; line-height: 1.6; color: #838998; margin: 0;">
+        Groovy Books revolutionize the way children learn to write, making it fun, engaging, and effective. Say goodbye to frustration and hello to beautifully crafted handwriting.
+      </p>
+      
+      <!-- Button -->
+      <a href="#books" style="display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #e85122; color: #ffffff; text-decoration: none; border-radius: 8px; font-family: 'Assistant', sans-serif; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; width: fit-content;">
+        Explore Books
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: #ffffff;">
+          <path d="M5,13H16.17l-4.88,4.88a1.008,1.008,0,0,0,0,1.42,1,1,0,0,0,1.41,0l6.59-6.59a1,1,0,0,0,0-1.41L12.71,4.7A1,1,0,1,0,11.3,6.11L16.17,11H5a1,1,0,0,0,0,2Z"/>
+        </svg>
+      </a>
+    </div>
+    
+    <!-- Image -->
+    <div style="display: flex; justify-content: center; align-items: center;">
+      <img src="{{ 'groovy-world-logo.png' | asset_url }}" alt="Groovy World Books" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);" />
+    </div>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Ready, Set, Write with Groovy"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Main Title",
+      "default": "Unlock the Joy of Writing with Groovy Books"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Groovy Books revolutionize the way children learn to write, making it fun, engaging, and effective. Say goodbye to frustration and hello to beautifully crafted handwriting."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Explore Books"
+    },
+    {
+      "type": "text",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "#books"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %} 
