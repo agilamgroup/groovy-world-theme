@@ -18,9 +18,45 @@
         "button_text": "Explore Books",
         "button_link": "#books"
       }
+    },
+    "features_section": {
+      "type": "features-section",
+      "settings": {
+        "title": "Why Choose Groovy Books?",
+        "subtitle": "Discover the unique benefits that make Groovy Books the perfect choice for your child's writing journey."
+      }
+    },
+    "products_showcase": {
+      "type": "products-showcase",
+      "settings": {
+        "title": "Our Featured Books",
+        "subtitle": "Discover our collection of carefully crafted books designed to make learning fun and effective."
+      }
+    },
+    "testimonials_section": {
+      "type": "testimonials-section",
+      "settings": {
+        "title": "What Parents Say",
+        "subtitle": "Real stories from parents who have seen amazing improvements in their children's writing skills."
+      }
+    },
+    "cta_section": {
+      "type": "cta-section",
+      "settings": {
+        "title": "Ready to Transform Your Child's Writing?",
+        "subtitle": "Join thousands of parents who have already seen amazing results with Groovy Books. Start your child's writing journey today!",
+        "primary_button_text": "Shop Now",
+        "primary_button_link": "/collections/all",
+        "secondary_button_text": "Learn More",
+        "secondary_button_link": "/pages/contact"
+      }
     }
   },
   "order": [
-    "hero_section"
+    "hero_section",
+    "features_section",
+    "products_showcase",
+    "testimonials_section",
+    "cta_section"
   ]
 }

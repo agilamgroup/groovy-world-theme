@@ -1,0 +1,90 @@
+{% comment %}
+  Features Section - Groovy World Homepage
+  Shows the 3 main features/benefits
+{% endcomment %}
+
+<div class="features-section" style="background: rgb(var(--color-background)); padding: 80px 20px;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Section Title -->
+    <div style="text-align: center; margin-bottom: 60px;">
+      <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 2.5rem; font-weight: 700; color: #333; margin: 0 0 20px 0;">
+        Why Choose Groovy Books?
+      </h2>
+      <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; color: #666; margin: 0; max-width: 600px; margin: 0 auto;">
+        Discover the unique benefits that make Groovy Books the perfect choice for your child's writing journey.
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+      
+      <!-- Feature 1: Fun & Engaging -->
+      <div style="background: white; padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+        <div style="width: 80px; height: 80px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
+          ✨
+        </div>
+        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.5rem; font-weight: 600; color: #333; margin: 0 0 15px 0;">
+          Fun & Engaging
+        </h3>
+        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #666; line-height: 1.6; margin: 0;">
+          Our books turn learning into an exciting adventure with colorful illustrations, interactive exercises, and engaging activities that keep children motivated and eager to learn.
+        </p>
+      </div>
+
+      <!-- Feature 2: Proven Results -->
+      <div style="background: white; padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+        <div style="width: 80px; height: 80px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
+          📈
+        </div>
+        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.5rem; font-weight: 600; color: #333; margin: 0 0 15px 0;">
+          Proven Results
+        </h3>
+        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #666; line-height: 1.6; margin: 0;">
+          Backed by years of research and thousands of success stories, our method has helped children develop beautiful handwriting and build confidence in their writing skills.
+        </p>
+      </div>
+
+      <!-- Feature 3: Easy to Use -->
+      <div style="background: white; padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
+        <div style="width: 80px; height: 80px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
+          🎯
+        </div>
+        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.5rem; font-weight: 600; color: #333; margin: 0 0 15px 0;">
+          Easy to Use
+        </h3>
+        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #666; line-height: 1.6; margin: 0;">
+          Simple, step-by-step instructions make it easy for parents and teachers to guide children through the learning process, with clear progress tracking and helpful tips.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Features Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Why Choose Groovy Books?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Section Subtitle",
+      "default": "Discover the unique benefits that make Groovy Books the perfect choice for your child's writing journey."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %} 

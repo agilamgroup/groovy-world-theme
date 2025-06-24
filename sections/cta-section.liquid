@@ -1,0 +1,96 @@
+{% comment %}
+  CTA Section - Groovy World Homepage
+  Call-to-Action section to encourage purchases
+{% endcomment %}
+
+<div class="cta-section" style="background: #ff6b35; padding: 80px 20px; text-align: center;">
+  <div style="max-width: 800px; margin: 0 auto;">
+    
+    <!-- CTA Content -->
+    <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 3rem; font-weight: 700; color: white; margin: 0 0 20px 0; line-height: 1.2;">
+      Ready to Transform Your Child's Writing?
+    </h2>
+    
+    <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: white; margin: 0 0 40px 0; line-height: 1.5; opacity: 0.9;">
+      Join thousands of parents who have already seen amazing results with Groovy Books. Start your child's writing journey today!
+    </p>
+    
+    <!-- CTA Buttons -->
+    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+      <a href="{{ routes.collections_url }}" style="background: white; color: #ff6b35; padding: 18px 36px; border-radius: 30px; text-decoration: none; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; display: inline-block; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+        Shop Now
+      </a>
+      
+      <a href="/pages/contact" style="background: transparent; color: white; padding: 18px 36px; border: 2px solid white; border-radius: 30px; text-decoration: none; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; display: inline-block;">
+        Learn More
+      </a>
+    </div>
+    
+    <!-- Trust Indicators -->
+    <div style="margin-top: 50px; display: flex; justify-content: center; align-items: center; gap: 40px; flex-wrap: wrap;">
+      <div style="display: flex; align-items: center; color: white; font-family: 'Preahvihear', sans-serif; font-size: 0.9rem;">
+        <span style="font-size: 1.5rem; margin-right: 8px;">🚚</span>
+        Free Shipping
+      </div>
+      
+      <div style="display: flex; align-items: center; color: white; font-family: 'Preahvihear', sans-serif; font-size: 0.9rem;">
+        <span style="font-size: 1.5rem; margin-right: 8px;">⭐</span>
+        30-Day Guarantee
+      </div>
+      
+      <div style="display: flex; align-items: center; color: white; font-family: 'Preahvihear', sans-serif; font-size: 0.9rem;">
+        <span style="font-size: 1.5rem; margin-right: 8px;">💬</span>
+        Expert Support
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "CTA Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "CTA Title",
+      "default": "Ready to Transform Your Child's Writing?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "CTA Subtitle",
+      "default": "Join thousands of parents who have already seen amazing results with Groovy Books. Start your child's writing journey today!"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "Learn More"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "CTA Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %} 
