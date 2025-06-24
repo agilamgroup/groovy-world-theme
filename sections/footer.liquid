@@ -98,11 +98,7 @@
     
     <!-- Logo -->
     <div class="footer__logo">
-      {%- if settings.logo != blank -%}
-        <img src="{{ settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="footer__logo-img">
-      {%- else -%}
-        <span class="footer__logo-text">{{ shop.name }}</span>
-      {%- endif -%}
+      <img src="{{ 'groovy-logo.png' | asset_url }}" alt="Groovy Logo" class="footer__logo-img">
     </div>
 
     <!-- Slogan -->

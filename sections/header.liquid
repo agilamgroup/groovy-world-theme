@@ -220,19 +220,9 @@
   <header class="header">
     <!-- Logo -->
     <div class="header__logo">
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link">
-        {%- if settings.logo != blank -%}
-          <img src="{{ settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="header__logo-img">
-        {%- else -%}
-          <span class="header__logo-text">{{ shop.name }}</span>
-        {%- endif -%}
+        <img src="{{ 'groovy-logo.png' | asset_url }}" alt="Groovy Logo" class="header__logo-img">
       </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
     </div>
 
     <!-- Navigation -->
