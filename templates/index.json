@@ -10,44 +10,34 @@
         "button_link": "#books"
       }
     },
-    "features_section": {
-      "type": "features-section",
-      "settings": {
-        "title": "Why Choose Groovy Books?",
-        "subtitle": "Discover the unique benefits that make Groovy Books the perfect choice for your child's writing journey."
-      }
-    },
     "products_showcase": {
       "type": "products-showcase",
       "settings": {
-        "title": "Our Featured Books",
-        "subtitle": "Discover our collection of carefully crafted books designed to make learning fun and effective."
+        "title": "Our Latest Books",
+        "subtitle": "Explore our range of available and soon-to-be-released books designed to make learning fun and effective."
       }
     },
-    "testimonials_section": {
-      "type": "testimonials-section",
+    "features_section": {
+      "type": "features-section",
       "settings": {
-        "title": "What Parents Say",
-        "subtitle": "Real stories from parents who have seen amazing improvements in their children's writing skills."
+        "title": "Why Should I Use Groovy?",
+        "subtitle": "Our approach sets us apart from traditional tracing books. Here's why Groovy is the ideal choice."
       }
     },
-    "cta_section": {
-      "type": "cta-section",
-      "settings": {
-        "title": "Ready to Transform Your Child's Writing?",
-        "subtitle": "Join thousands of parents who have already seen amazing results with Groovy Books. Start your child's writing journey today!",
-        "primary_button_text": "Shop Now",
-        "primary_button_link": "/collections/all",
-        "secondary_button_text": "Learn More",
-        "secondary_button_link": "/pages/contact"
-      }
+    "faq_section": {
+      "type": "faq-section",
+      "settings": {}
+    },
+    "contact_section": {
+      "type": "contact-section",
+      "settings": {}
     }
   },
   "order": [
     "hero_section",
-    "features_section",
     "products_showcase",
-    "testimonials_section",
-    "cta_section"
+    "features_section",
+    "faq_section",
+    "contact_section"
   ]
 }

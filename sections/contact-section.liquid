@@ -1,0 +1,45 @@
+<section id="contact" class="contact-section" style="background: #eaf7fd; padding: 80px 0;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 60px; align-items: flex-start;">
+    <!-- Left: Contact Form -->
+    <div style="flex: 1 1 55%; min-width: 320px;">
+      <div style="display: inline-block; padding: 8px 16px; border: 2px solid #f26522; border-radius: 20px; color: #f26522; font-family: 'Preahvihear', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; background: transparent; margin-bottom: 20px;">Get in Touch</div>
+      <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 2.5rem; font-weight: 700; color: #2d5da1; margin: 0 0 32px 0;">Send us Your Inquiry</h2>
+      <form method="post" action="/contact#contact" accept-charset="UTF-8" style="display: flex; flex-direction: column; gap: 18px;">
+        <input type="hidden" name="form_type" value="contact" />
+        <input type="hidden" name="utf8" value="✓" />
+        <label style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #222;">Your name
+          <input type="text" name="contact[name]" required style="width: 100%; padding: 14px; border-radius: 8px; border: none; background: #fff; margin-top: 6px; font-size: 1rem; font-family: 'Preahvihear', sans-serif;" />
+        </label>
+        <label style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #222;">Your email
+          <input type="email" name="contact[email]" required style="width: 100%; padding: 14px; border-radius: 8px; border: none; background: #fff; margin-top: 6px; font-size: 1rem; font-family: 'Preahvihear', sans-serif;" />
+        </label>
+        <label style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #222;">Subject
+          <input type="text" name="contact[subject]" style="width: 100%; padding: 14px; border-radius: 8px; border: none; background: #fff; margin-top: 6px; font-size: 1rem; font-family: 'Preahvihear', sans-serif;" />
+        </label>
+        <label style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #222;">Your message
+          <textarea name="contact[body]" required style="width: 100%; min-height: 120px; padding: 14px; border-radius: 8px; border: none; background: #fff; margin-top: 6px; font-size: 1rem; font-family: 'Preahvihear', sans-serif;"></textarea>
+        </label>
+        <button type="submit" style="background: #f26522; color: #fff; border: none; border-radius: 8px; padding: 16px 32px; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 10px; width: fit-content;">Send Message</button>
+      </form>
+    </div>
+    <!-- Right: Email Info -->
+    <div style="flex: 1 1 40%; min-width: 320px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 24px;">
+      <div style="display: inline-block; padding: 8px 16px; border: 2px solid #f26522; border-radius: 20px; color: #f26522; font-family: 'Preahvihear', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; background: transparent;">Email Address</div>
+      <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 2rem; font-weight: 700; color: #2d5da1; margin: 0;">Write an Email</h3>
+      <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; color: #222; margin-top: 10px;">
+        For book inquiries:<br />
+        <span style="font-weight: bold; font-size: 1.15rem; color: #111;">hello@groovy-world.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Section",
+  "settings": [],
+  "presets": [
+    {"name": "Contact Section", "category": "Custom Sections"}
+  ]
+}
+{% endschema %} 
