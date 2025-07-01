@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_section": {
@@ -10,53 +19,20 @@
         "button_link": "#books"
       }
     },
-    "products_showcase": {
-      "type": "products-showcase",
+    "latest_books_8DHdaw": {
+      "type": "latest-books",
+      "name": "Latest Books",
       "settings": {
-        "title": "Our Latest Books",
-        "subtitle": "Explore our range of available and soon-to-be-released books designed to make learning fun and effective."
+        "collection": "latest-books"
       }
     },
     "features_section": {
       "type": "features-section",
-      "settings": {
-        "title": "Why Should I Use Groovy?",
-        "subtitle": "Our approach sets us apart from traditional tracing books. Here's why Groovy is the ideal choice."
-      }
+      "settings": {}
     },
     "faq_section": {
       "type": "faq-section",
-      "settings": {},
-      "blocks": {
-        "faq_1": {
-          "type": "faq",
-          "settings": {
-            "question": "Why Groovy Books?",
-            "answer": "Groovy Books are an innovative and engaging way to teach children handwriting skills. Our unique approach combines fun activities with effective learning techniques to make mastering handwriting enjoyable and easy for kids."
-          }
-        },
-        "faq_2": {
-          "type": "faq",
-          "settings": {
-            "question": "How can I order Groovy Books?",
-            "answer": "To place an order or get more information, please send us your inquiry using the form below or email us at hello@groovy-world.com. Our team will get in touch with you promptly."
-          }
-        },
-        "faq_3": {
-          "type": "faq",
-          "settings": {
-            "question": "Are Groovy Books suitable for all age groups?",
-            "answer": "Groovy Books are specifically designed for nursery, pre-school, and primary school children."
-          }
-        },
-        "faq_4": {
-          "type": "faq",
-          "settings": {
-            "question": "What makes Groovy Books different from traditional tracing books?",
-            "answer": "Groovy Books offer tactile grooves for precise guidance, fine motor skill development, and a structured learning system. This sets them apart from traditional tracing books."
-          }
-        }
-      }
+      "settings": {}
     },
     "contact_section": {
       "type": "contact-section",
@@ -65,7 +41,7 @@
   },
   "order": [
     "hero_section",
-    "products_showcase",
+    "latest_books_8DHdaw",
     "features_section",
     "faq_section",
     "contact_section"

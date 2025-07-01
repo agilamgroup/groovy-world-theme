@@ -1,85 +1,63 @@
 {% comment %}
   Features Section - Groovy World Homepage
-  Shows the 3 main features/benefits
+  Shows the 3 main reasons/benefits (Screenshot-Vorlage)
 {% endcomment %}
 
-<div class="features-section" style="background: rgb(var(--color-background)); padding: 80px 20px;">
+<div class="features-section" style="background: #f0f8fd; padding: 80px 20px;">
   <div style="max-width: 1200px; margin: 0 auto;">
-    
+    <!-- Badge -->
+    <div style="text-align: center; margin-bottom: 18px;">
+      <span style="display: inline-block; font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #ff6b35; border: 2px solid #ff6b35; border-radius: 20px; padding: 4px 18px; letter-spacing: 1px; background: #fff; font-weight: 600;">REASONS</span>
+    </div>
     <!-- Section Title -->
+    <div style="text-align: center; margin-bottom: 18px;">
+      <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 3.2rem; font-weight: 700; color: #2d5da1; margin: 0 0 10px 0; line-height: 1.1;">Why Should I Use<br>Groovy?</h2>
+    </div>
     <div style="text-align: center; margin-bottom: 60px;">
-      <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 2.5rem; font-weight: 700; color: #333; margin: 0 0 20px 0;">
-        Why Choose Groovy Books?
-      </h2>
-      <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; color: #666; margin: 0; max-width: 600px; margin: 0 auto;">
-        Discover the unique benefits that make Groovy Books the perfect choice for your child's writing journey.
+      <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.15rem; color: #666; margin: 0; max-width: 600px; margin: 0 auto;">
+        Our approach sets us apart from traditional tracing books.<br>Here's why Groovy is the ideal choice.
       </p>
     </div>
-
     <!-- Features Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-      
-      <!-- Feature 1: Fun & Engaging -->
-      <div style="background: white; padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
-        <div style="width: 80px; height: 80px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
-          ✨
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px;">
+      <!-- Feature 1: Consistent Guidance -->
+      <div style="background: white; padding: 40px; border-radius: 32px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10); transition: transform 0.3s ease;">
+        <div style="width: 80px; height: 80px; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center;">
+          <img src="{{ 'guidance-4.svg' | asset_url }}" alt="Consistent Guidance" style="width: 64px; height: 64px;" />
         </div>
-        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.5rem; font-weight: 600; color: #333; margin: 0 0 15px 0;">
-          Fun & Engaging
-        </h3>
-        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #666; line-height: 1.6; margin: 0;">
-          Our books turn learning into an exciting adventure with colorful illustrations, interactive exercises, and engaging activities that keep children motivated and eager to learn.
+        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 0 0 15px 0;">Consistent Guidance</h3>
+        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; color: #888; line-height: 1.6; margin: 0; font-weight: 400;">
+          Little grooves offer consistent and tactile guidance for children, promoting muscle memory and better handwriting.
         </p>
       </div>
-
-      <!-- Feature 2: Proven Results -->
-      <div style="background: white; padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
-        <div style="width: 80px; height: 80px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
-          📈
+      <!-- Feature 2: Engaging and Fun -->
+      <div style="background: white; padding: 40px; border-radius: 32px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10); transition: transform 0.3s ease;">
+        <div style="width: 80px; height: 80px; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center;">
+          <img src="{{ 'fun-1.svg' | asset_url }}" alt="Engaging and Fun" style="width: 64px; height: 64px;" />
         </div>
-        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.5rem; font-weight: 600; color: #333; margin: 0 0 15px 0;">
-          Proven Results
-        </h3>
-        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #666; line-height: 1.6; margin: 0;">
-          Backed by years of research and thousands of success stories, our method has helped children develop beautiful handwriting and build confidence in their writing skills.
+        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 0 0 15px 0;">Engaging and Fun</h3>
+        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; color: #888; line-height: 1.6; margin: 0; font-weight: 400;">
+          Our books are more engaging and less frustrating than plain dotted pages, with playful and educational activities that keep children excited about writing.
         </p>
       </div>
-
-      <!-- Feature 3: Easy to Use -->
-      <div style="background: white; padding: 40px; border-radius: 16px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease;">
-        <div style="width: 80px; height: 80px; background: #ff6b35; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem;">
-          🎯
+      <!-- Feature 3: Beautiful Handwriting -->
+      <div style="background: white; padding: 40px; border-radius: 32px; text-align: center; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.10); transition: transform 0.3s ease;">
+        <div style="width: 80px; height: 80px; margin: 0 auto 20px auto; display: flex; align-items: center; justify-content: center;">
+          <img src="{{ 'writing-1.svg' | asset_url }}" alt="Beautiful Handwriting" style="width: 64px; height: 64px;" />
         </div>
-        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.5rem; font-weight: 600; color: #333; margin: 0 0 15px 0;">
-          Easy to Use
-        </h3>
-        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #666; line-height: 1.6; margin: 0;">
-          Simple, step-by-step instructions make it easy for parents and teachers to guide children through the learning process, with clear progress tracking and helpful tips.
+        <h3 style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 0 0 15px 0;">Beautiful Handwriting</h3>
+        <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; color: #888; line-height: 1.6; margin: 0; font-weight: 400;">
+          Groovy not only teaches children to write with proper form and direction but also carves out beautiful, easy-to-read handwriting, a skill that lasts a lifetime.
         </p>
       </div>
-
     </div>
-
   </div>
 </div>
 
 {% schema %}
 {
   "name": "Features Section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Section Title",
-      "default": "Why Choose Groovy Books?"
-    },
-    {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Section Subtitle",
-      "default": "Discover the unique benefits that make Groovy Books the perfect choice for your child's writing journey."
-    }
-  ],
+  "settings": [],
   "presets": [
     {
       "name": "Features Section",
