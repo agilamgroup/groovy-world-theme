@@ -1,0 +1,87 @@
+{% comment %}
+  Latest Books Section - Dynamisch aus gewählter Kollektion
+  Design wie Screenshot, alle Texte Englisch
+{% endcomment %}
+
+<section class="latest-books-section" style="padding: 80px 0; background: #fff;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <!-- Badge -->
+    <div style="text-align: center; margin-bottom: 18px;">
+      <span style="display: inline-block; font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #ff6b35; border: 2px solid #ff6b35; border-radius: 20px; padding: 4px 18px; letter-spacing: 1px; background: #fff; font-weight: 600;">GROOVY BOOKS</span>
+    </div>
+    <!-- Section Title -->
+    <div style="text-align: center; margin-bottom: 10px;">
+      <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 3.2rem; font-weight: 700; color: #2d5da1; margin: 0; line-height: 1.1;">Our Latest Books</h2>
+    </div>
+    <div style="text-align: center; margin-bottom: 60px;">
+      <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.15rem; color: #666; margin: 0; max-width: 600px; margin: 0 auto;">
+        Explore our range of available and soon-to-be-released books<br>designed to make learning fun and effective.
+      </p>
+    </div>
+    <!-- Products Grid -->
+    {% if section.settings.collection != blank and collections[section.settings.collection] %}
+      <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center;">
+        {% assign books = collections[section.settings.collection].products %}
+        {% for product in books %}
+          <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative;">
+            <!-- Produktbild -->
+            <a href="{{ product.url }}" style="display: block; margin-bottom: 16px;">
+              <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff;" />
+            </a>
+            <!-- Status-Badge -->
+            {% if product.available %}
+              <span style="position: absolute; left: 18px; top: 18px; background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Available</span>
+            {% else %}
+              <span style="position: absolute; left: 18px; top: 18px; background: #fff3e6; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Coming Soon</span>
+            {% endif %}
+            <!-- Titel -->
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.15rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ product.title }}</div>
+            <!-- Preis -->
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; color: #222; margin-bottom: 10px; text-align: center;">
+              {% if product.compare_at_price > product.price %}
+                <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ product.compare_at_price | money_with_currency }}</span>
+                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700;">{{ product.price | money_with_currency }}</span>
+              {% else %}
+                <span style="color: #222; font-weight: 700;">{{ product.price | money_with_currency }}</span>
+              {% endif %}
+            </div>
+            <!-- Buttons -->
+            {% if product.available %}
+              <a href="{{ product.url }}" style="display: block; width: 100%; margin-bottom: 8px; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 8px; font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; transition: background 0.2s, color 0.2s;">Buy Now</a>
+              <form method="post" action="/cart/add" style="width: 100%;">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <button type="submit" style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 8px; font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; font-weight: 600; padding: 8px 0; margin-top: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s, color 0.2s;">
+                  <span style="font-size: 1.1em;">🛒</span> Add to Cart
+                </button>
+              </form>
+            {% else %}
+              <a href="{{ product.url }}" style="display: block; width: 100%; margin-bottom: 8px; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 8px; font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; opacity: 0.6; pointer-events: none;">Buy Now</a>
+              <button disabled style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 8px; font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; font-weight: 600; padding: 8px 0; margin-top: 0; opacity: 0.6; cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 6px;">🛒 Add to Cart</button>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div style="text-align: center; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem;">No collection selected or collection is empty.</div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Latest Books",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Book Collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Latest Books",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %} 
