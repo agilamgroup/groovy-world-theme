@@ -79,7 +79,10 @@
 {%- style -%}
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
-    background: rgb(var(--color-background));
+    background: transparent !important;
+    box-shadow: none;
+    position: relative;
+    z-index: 10;
   }
 
   .section-header {
@@ -137,7 +140,8 @@
   .header__nav-item {
     font-family: 'Preahvihear', sans-serif;
     font-size: 1.1rem;
-    color: #333;
+    color: #222;
+    text-shadow: 0 1px 4px rgba(255,255,255,0.7);
     text-decoration: none;
     transition: color 0.3s ease;
   }
@@ -163,6 +167,7 @@
     transition: background-color 0.3s ease;
     text-decoration: none;
     display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
 
   .header__cta-button:hover {
