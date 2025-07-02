@@ -86,6 +86,20 @@
 }
 </style>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const faqSection = document.querySelector('.faq-section .faq-accordion');
+  if (!faqSection) return;
+  faqSection.addEventListener('toggle', function (e) {
+    if (e.target.tagName.toLowerCase() === 'details' && e.target.open) {
+      faqSection.querySelectorAll('details[open]').forEach((el) => {
+        if (el !== e.target) el.open = false;
+      });
+    }
+  }, true);
+});
+</script>
+
 {% schema %}
 {
   "name": "FAQ Section",
