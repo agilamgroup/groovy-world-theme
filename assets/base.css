@@ -3604,19 +3604,21 @@ details-disclosure > details {
 
 .hero-title {
   font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(5rem, 12vw, 10rem);
   font-weight: 700;
   color: #2465aa;
   line-height: 1.05;
   letter-spacing: -0.02em;
-  margin-bottom: 1.2rem;
+  margin-bottom: 2rem;
   text-shadow: 0 2px 8px rgba(255,255,255,0.25);
 }
 
 .hero-subtext {
-  font-size: 1.25rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
   color: #444;
-  max-width: 600px;
-  margin: 0 auto 2rem auto;
-  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: left;
+  line-height: 1.5;
+  font-weight: 400;
 }
