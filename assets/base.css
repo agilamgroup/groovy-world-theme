@@ -3620,3 +3620,12 @@ details-disclosure > details {
   margin: 0 auto 2rem auto;
   text-align: center;
 }
+
+.product-card-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.product-card-flex .card__content:last-child {
+  margin-top: auto;
+}
