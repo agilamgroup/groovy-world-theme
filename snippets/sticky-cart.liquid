@@ -1,6 +1,7 @@
 <div id="sticky-cart-icon">
-  <a href="/cart" aria-label="View cart" style="position: relative; display: flex; align-items: center;">
-    <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart" style="width: 36px; height: 36px;">
+  <a href="/cart" aria-label="View cart" style="position: relative; display: flex; align-items: center; gap: 10px; font-family: 'Preahvihear', sans-serif; font-weight: 600; font-size: 1.1rem; color: #2465aa; text-decoration: none;">
+    <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart" style="width: 32px; height: 32px;">
+    <span>Cart</span>
     {% if cart.item_count > 0 %}
       <span id="sticky-cart-count">{{ cart.item_count }}</span>
     {% endif %}
