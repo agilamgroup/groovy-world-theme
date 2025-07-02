@@ -58,6 +58,9 @@
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- assign product_image = card_product.featured_media | default: card_product.featured_image -%}
+        {%- if product_image == blank and card_product.images and card_product.images.size > 0 -%}
+          {%- assign product_image = card_product.images[0] -%}
+        {%- endif -%}
         {%- if product_image -%}
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
