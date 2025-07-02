@@ -1,0 +1,8 @@
+<div id="sticky-cart-icon">
+  <a href="/cart" aria-label="View cart" style="position: relative; display: flex; align-items: center;">
+    <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart" style="width: 36px; height: 36px;">
+    {% if cart.item_count > 0 %}
+      <span id="sticky-cart-count">{{ cart.item_count }}</span>
+    {% endif %}
+  </a>
+</div> 
