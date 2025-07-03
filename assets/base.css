@@ -3629,14 +3629,7 @@ details-disclosure > details {
   text-align: center;
 }
 
-.product-card-flex {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.product-card-flex .card__content:last-child {
-  margin-top: auto;
-}
+
 
 #sticky-cart-icon {
   position: fixed;
