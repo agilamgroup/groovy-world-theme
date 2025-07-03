@@ -267,10 +267,7 @@
         <li>
           <a href="/cart" class="header__nav-item cart-link">
             <img src="{{ 'icon-cart.svg' | asset_url }}" alt="Cart" class="cart-icon">
-            <span>Cart</span>
-            {% if cart.item_count > 0 %}
-              <span class="cart-badge">{{ cart.item_count }}</span>
-            {% endif %}
+            <span>Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
           </a>
         </li>
       </ul>
