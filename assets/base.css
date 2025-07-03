@@ -3666,3 +3666,13 @@ details-disclosure > details {
   position: relative;
   top: -8px;
 }
+
+.product-card-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-card-flex .card__content:last-child {
+  margin-top: auto;
+}
