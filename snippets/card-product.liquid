@@ -58,39 +58,43 @@
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- assign product_image = card_product.featured_media -%}
+        {%- assign image_src = "" -%}
         {%- if product_image and product_image.preview_image and product_image.preview_image.src -%}
-          <div class="card__media">
-            <div class="media media--transparent media--hover-effect">
-              <img
-                src="https:{{ product_image.preview_image.src }}"
-                alt="{{ product_image.alt | escape }}"
-                class="motion-reduce"
-                loading="lazy"
-                style="width: 100%; height: auto;"
-              >
-            </div>
-          </div>
+          {%- assign image_src = product_image.preview_image.src -%}
         {%- elsif card_product.featured_image != blank -%}
+          {%- assign image_src = card_product.featured_image -%}
+        {%- elsif card_product.images and card_product.images.size > 0 -%}
+          {%- assign image_src = card_product.images[0] -%}
+        {%- endif -%}
+
+        {%- assign image_url = "" -%}
+        {%- if image_src contains '//' -%}
+          {%- assign image_url = 'https:' | append: image_src -%}
+        {%- elsif image_src contains 'http' -%}
+          {%- assign image_url = image_src -%}
+        {%- endif -%}
+
+        {%- if image_url != blank -%}
           <div class="card__media">
             <div class="media media--transparent media--hover-effect">
               <img
-                src="https:{{ card_product.featured_image }}"
-                alt="Product image"
+                src="{{ image_url }}"
+                alt="{{ product_image.alt | escape | default: 'Product image' }}"
                 class="motion-reduce"
                 loading="lazy"
                 style="width: 100%; height: auto;"
               >
             </div>
           </div>
-        {%- elsif card_product.images and card_product.images.size > 0 -%}
+        {%- else -%}
           <div class="card__media">
             <div class="media media--transparent media--hover-effect">
               <img
-                src="https:{{ card_product.images[0] }}"
-                alt="Product image"
+                src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-image.png"
+                alt="Placeholder image"
                 class="motion-reduce"
                 loading="lazy"
-                style="width: 100%; height: auto;"
+                style="width: 100%; height: auto; opacity: 0.5;"
               >
             </div>
           </div>
