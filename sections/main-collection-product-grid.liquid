@@ -49,10 +49,17 @@
     margin: 0 auto;
     display: block;
   }
-  .gw-badge {
+  .gw-badge-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
     position: absolute;
     top: 1.2rem;
     left: 2rem;
+    z-index: 2;
+  }
+  .gw-badge {
     background: #eafff2;
     color: #1db16b;
     font-size: 1rem;
@@ -72,7 +79,6 @@
     border-radius: 16px;
     padding: 0.25em 1.1em;
     border: 1.5px solid #ff2d2d;
-    margin-left: 8px;
     font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
     display: inline-block;
   }
@@ -194,10 +200,12 @@
       <div class="gw-card">
         <div class="gw-card-image-wrap">
           {% if product.available %}
-            <span class="gw-badge">Available</span>
-            {% if product.compare_at_price > product.price %}
-              <span class="gw-badge-sale">Sale</span>
-            {% endif %}
+            <div class="gw-badge-stack">
+              <span class="gw-badge">Available</span>
+              {% if product.compare_at_price > product.price %}
+                <span class="gw-badge-sale">Sale</span>
+              {% endif %}
+            </div>
           {% endif %}
           <a href="{{ product.url }}">
             {% if product.featured_media %}
