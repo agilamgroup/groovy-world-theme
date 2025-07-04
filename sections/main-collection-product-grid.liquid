@@ -62,6 +62,19 @@
     box-shadow: 0 1px 4px rgba(36,101,170,0.07);
     font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
     letter-spacing: 0.01em;
+    display: inline-block;
+  }
+  .gw-badge-sale {
+    background: #ffeaea;
+    color: #ff2d2d;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 16px;
+    padding: 0.25em 1.1em;
+    border: 1.5px solid #ff2d2d;
+    margin-left: 8px;
+    font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
+    display: inline-block;
   }
   .gw-card-content {
     padding: 1.2rem 1.5rem 1.5rem 1.5rem;
@@ -73,7 +86,7 @@
   }
   .gw-title {
     font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
-    font-size: 1.18rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: #222;
     text-align: center;
@@ -94,7 +107,7 @@
   }
   .gw-new-price {
     color: #ff6b35;
-    font-size: 1.18rem;
+    font-size: 1.22rem;
     font-weight: 700;
     letter-spacing: 0.01em;
   }
@@ -182,6 +195,9 @@
         <div class="gw-card-image-wrap">
           {% if product.available %}
             <span class="gw-badge">Available</span>
+            {% if product.compare_at_price > product.price %}
+              <span class="gw-badge-sale">Sale</span>
+            {% endif %}
           {% endif %}
           <a href="{{ product.url }}">
             {% if product.featured_media %}
@@ -206,8 +222,10 @@
           <div class="gw-prices">
             {% if product.compare_at_price > product.price %}
               <span class="gw-old-price">{{ product.compare_at_price | money }}</span>
+              <span class="gw-new-price">{{ product.price | money }}</span>
+            {% else %}
+              <span class="gw-new-price">{{ product.price | money }}</span>
             {% endif %}
-            <span class="gw-new-price">{{ product.price | money }}</span>
           </div>
           <div class="gw-card-buttons">
             <a href="{{ product.url }}" class="gw-btn buy">Buy Now</a>
