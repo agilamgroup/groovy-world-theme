@@ -35,14 +35,14 @@
               <span style="position: absolute; left: 18px; top: 18px; background: #fff3e6; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Coming Soon</span>
             {% endif %}
             <!-- Titel -->
-            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.15rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ product.title }}</div>
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ product.title }}</div>
             <!-- Preis -->
-            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.05rem; color: #222; margin-bottom: 10px; text-align: center;">
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.18rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
               {% if product.compare_at_price > product.price %}
                 <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ product.compare_at_price | money_with_currency }}</span>
-                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700;">{{ product.price | money_with_currency }}</span>
+                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.22rem;">{{ product.price | money_with_currency }}</span>
               {% else %}
-                <span style="color: #222; font-weight: 700;">{{ product.price | money_with_currency }}</span>
+                <span style="color: #222; font-weight: 700; font-size: 1.18rem;">{{ product.price | money_with_currency }}</span>
               {% endif %}
             </div>
             <!-- Buttons -->
