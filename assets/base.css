@@ -32,7 +32,7 @@
   --shadow-blur-radius: var(--product-card-shadow-blur-radius);
   --shadow-opacity: var(--product-card-shadow-opacity);
   --shadow-visible: var(--product-card-shadow-visible);
-  --image-padding: var(--product-card-image-padding);
+  --image-padding: Invar(--product-card-image-padding);
   --text-alignment: var(--product-card-text-alignment);
 }
 
@@ -3675,4 +3675,8 @@ details-disclosure > details {
 
 .product-card-flex .card__content:last-child {
   margin-top: auto;
+}
+
+html {
+  scroll-behavior: smooth;
 }
