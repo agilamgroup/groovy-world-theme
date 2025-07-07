@@ -73,22 +73,32 @@
   
   .groovy-recommendation-card__image-wrap {
     position: relative;
-    padding: 2rem 2rem 0 2rem;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    background: #f6f7fb;
+    border-radius: 18px;
+    min-height: 220px;
+    height: 220px;
+    max-height: 250px;
+    margin: 0 0 1.2rem 0;
+    box-shadow: 0 2px 8px rgba(36, 101, 170, 0.06);
+    overflow: hidden;
   }
   
   .groovy-recommendation-card__image {
-    width: 100%;
-    max-width: 200px;
-    height: 200px;
+    max-width: 90%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
     object-fit: contain;
-    background: #f8f8f8;
-    border: 3px solid #2465aa;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(36, 101, 170, 0.1);
-    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+    transition: none;
   }
   
   .groovy-recommendation-card:hover .groovy-recommendation-card__image {
