@@ -1,6 +1,7 @@
 {% comment %}
   Recommendations Section - wie 'Our Latest Books', aber für Produktseiten
-  Zeigt alle verfügbaren Produkte (außer das aktuelle), Bildgröße wie auf der Startseite
+  Zeigt bis zu 4 verfügbare Produkte (außer das aktuelle), Bildgröße wie auf der Startseite
+  Fallback: Collection 'all', falls keine Recommendations
 {% endcomment %}
 
 <section id="product-recommendations" style="padding: 60px 0; background: #fff;">
@@ -12,6 +13,10 @@
     <!-- Products Grid -->
     {% assign recommendations = product.recommendations.products | where: 'available', true %}
     {% assign recommendations = recommendations | reject: 'id', product.id %}
+    {% assign recommendations = recommendations | slice: 0, 4 %}
+    {% if recommendations.size == 0 %}
+      {% assign recommendations = collections.all.products | where: 'available', true | reject: 'id', product.id | slice: 0, 4 %}
+    {% endif %}
     {% if recommendations.size > 0 %}
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; justify-content: center; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0 auto;">
         {% for rec in recommendations %}
