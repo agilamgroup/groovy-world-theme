@@ -1,6 +1,6 @@
 {% comment %}
   Recommendations Section - wie 'Our Latest Books', aber für Produktseiten
-  Zeigt 4 verfügbare Produkte (außer das aktuelle), Bildgröße wie auf der Startseite
+  Zeigt alle verfügbaren Produkte (außer das aktuelle), Bildgröße wie auf der Startseite
 {% endcomment %}
 
 <section id="product-recommendations" style="padding: 60px 0; background: #fff;">
@@ -10,35 +10,38 @@
       <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 2.2rem; font-weight: 700; color: #2d5da1; margin: 0; line-height: 1.1;">You may also like</h2>
     </div>
     <!-- Products Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; justify-content: center; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0 auto;">
-      {% assign recommendations = product.recommendations.products | where: 'available', true %}
-      {% assign recommendations = recommendations | reject: 'id', product.id %}
-      {% assign recommendations = recommendations | slice: 0, 4 %}
-      {% for rec in recommendations %}
-        <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%;">
-          <!-- Produktbild -->
-          <a href="{{ rec.url }}" style="display: block; margin-bottom: 16px;">
-            <div style="position: relative; width: 170px; height: 230px;">
+    {% assign recommendations = product.recommendations.products | where: 'available', true %}
+    {% assign recommendations = recommendations | reject: 'id', product.id %}
+    {% if recommendations.size > 0 %}
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; justify-content: center; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0 auto;">
+        {% for rec in recommendations %}
+          <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%;">
+            <!-- Produktbild -->
+            <a href="{{ rec.url }}" style="display: block; margin-bottom: 16px;">
+              <div style="position: relative; width: 170px; height: 230px;">
+                {% if rec.compare_at_price > rec.price %}
+                  <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}" style="position: absolute; left: 0; bottom: 0; z-index: 2;">{{ 'products.product.on_sale' | t }}</span>
+                {% endif %}
+                <img src="{{ rec.featured_image | img_url: '400x' }}" alt="{{ rec.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff; display: block;" />
+              </div>
+            </a>
+            <!-- Titel -->
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ rec.title }}</div>
+            <!-- Preis -->
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
               {% if rec.compare_at_price > rec.price %}
-                <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}" style="position: absolute; left: 0; bottom: 0; z-index: 2;">{{ 'products.product.on_sale' | t }}</span>
+                <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ rec.compare_at_price | money_with_currency }}</span>
+                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ rec.price | money_with_currency }}</span>
+              {% else %}
+                <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ rec.price | money_with_currency }}</span>
               {% endif %}
-              <img src="{{ rec.featured_image | img_url: '400x' }}" alt="{{ rec.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff; display: block;" />
             </div>
-          </a>
-          <!-- Titel -->
-          <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ rec.title }}</div>
-          <!-- Preis -->
-          <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
-            {% if rec.compare_at_price > rec.price %}
-              <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ rec.compare_at_price | money_with_currency }}</span>
-              <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ rec.price | money_with_currency }}</span>
-            {% else %}
-              <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ rec.price | money_with_currency }}</span>
-            {% endif %}
           </div>
-        </div>
-      {% endfor %}
-    </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div style="text-align: center; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; margin-top: 2rem;">No recommendations available.</div>
+    {% endif %}
   </div>
 </section>
 
