@@ -50,21 +50,18 @@
                 <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
               {% endif %}
             </div>
-            <!-- Buttons -->
-            <div style="width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+            <!-- Buttons - nur bei verfügbaren Produkten -->
             {% if product.available %}
-              <a href="{{ product.url }}" style="display: block; width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; transition: background 0.2s, color 0.2s;">Buy Now</a>
-              <form method="post" action="/cart/add" style="width: 100%;">
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                <button type="submit" style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; margin-top: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s, color 0.2s;">
-                  <span style="font-size: 1.1em;">🛒</span> Add to Cart
-                </button>
-              </form>
-            {% else %}
-              <a href="{{ product.url }}" style="display: block; width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; opacity: 0.6; pointer-events: none;">Buy Now</a>
-              <button disabled style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; margin-top: 0; opacity: 0.6; cursor: not-allowed; display: flex; align-items: center; justify-content: center; gap: 6px;">🛒 Add to Cart</button>
+              <div style="width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+                <a href="{{ product.url }}" style="display: block; width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; transition: background 0.2s, color 0.2s;">Buy Now</a>
+                <form method="post" action="/cart/add" style="width: 100%;">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <button type="submit" style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; margin-top: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s, color 0.2s;">
+                    <span style="font-size: 1.1em;">🛒</span> Add to Cart
+                  </button>
+                </form>
+              </div>
             {% endif %}
-            </div>
           </div>
         {% endfor %}
       </div>
