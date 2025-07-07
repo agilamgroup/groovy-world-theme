@@ -14,7 +14,7 @@
       <h2 style="font-family: 'Preahvihear', sans-serif; font-size: 3.2rem; font-weight: 700; color: #2d5da1; margin: 0; line-height: 1.1;">Our Latest Books</h2>
     </div>
     <div style="text-align: center; margin-bottom: 60px;">
-      <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.125rem; color: #666; margin: 0; max-width: 600px; margin: 0 auto;">
+      <p style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #666; margin: 0; max-width: 600px; margin: 0 auto;">
         Explore our range of available and soon-to-be-released books<br>designed to make learning fun and effective.
       </p>
     </div>
@@ -42,12 +42,12 @@
             <!-- Titel -->
             <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ product.title }}</div>
             <!-- Preis -->
-            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.125rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
               {% if product.compare_at_price > product.price %}
                 <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ product.compare_at_price | money_with_currency }}</span>
-                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.125rem;">{{ product.price | money_with_currency }}</span>
+                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
               {% else %}
-                <span style="color: #222; font-weight: 700; font-size: 1.125rem;">{{ product.price | money_with_currency }}</span>
+                <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
               {% endif %}
             </div>
             <!-- Buttons -->
@@ -69,7 +69,7 @@
         {% endfor %}
       </div>
     {% else %}
-      <div style="text-align: center; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.125rem;">No collection selected or collection is empty.</div>
+      <div style="text-align: center; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.3rem;">No collection selected or collection is empty.</div>
     {% endif %}
   </div>
 </section>
