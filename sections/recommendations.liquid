@@ -18,7 +18,7 @@
       {% assign recommendations = collections.all.products | where: 'available', true | reject: 'id', product.id | slice: 0, 4 %}
     {% endif %}
     {% if recommendations.size > 0 %}
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; justify-content: center; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: repeat({{ recommendations.size }}, 1fr); gap: 32px; justify-content: center; margin: 0 auto; {% if recommendations.size == 2 %}max-width: 500px;{% elsif recommendations.size == 3 %}max-width: 750px;{% else %}max-width: 900px;{% endif %}">
         {% for rec in recommendations %}
           <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%;">
             <!-- Produktbild -->
