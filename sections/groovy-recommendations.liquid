@@ -96,31 +96,20 @@
     box-shadow: 0 8px 24px rgba(36, 101, 170, 0.2);
   }
   
-  .groovy-recommendation-card__badges {
-    position: absolute;
-    top: 1.5rem;
-    left: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    z-index: 2;
-  }
-  
   .groovy-recommendation-card__badge {
-    background: #eafff2;
-    color: #1db16b;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: #ffeaea;
+    color: #ff2d2d;
     font-family: 'Preahvihear', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
     border-radius: 12px;
     padding: 0.3em 0.8em;
-    box-shadow: 0 2px 8px rgba(36, 101, 170, 0.1);
-  }
-  
-  .groovy-recommendation-card__badge--sale {
-    background: #ffeaea;
-    color: #ff2d2d;
     border: 2px solid #ff2d2d;
+    box-shadow: 0 2px 8px rgba(255, 45, 45, 0.2);
+    z-index: 2;
   }
   
   .groovy-recommendation-card__content {
@@ -165,48 +154,7 @@
     font-weight: 700;
   }
   
-  .groovy-recommendation-card__buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-top: auto;
-  }
-  
-  .groovy-recommendation-card__btn {
-    border: 2px solid #ff6b35;
-    color: #ff6b35;
-    background: #fff;
-    border-radius: 8px;
-    font-family: 'Preahvihear', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    padding: 0.8em 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
-  .groovy-recommendation-card__btn--primary {
-    background: #ff6b35;
-    color: #fff;
-  }
-  
-  .groovy-recommendation-card__btn:hover {
-    background: #fff3ec;
-    color: #ff6b35;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.2);
-  }
-  
-  .groovy-recommendation-card__btn--primary:hover {
-    background: #e55a2b;
-    color: #fff;
-  }
+
   
   @media (max-width: 768px) {
     .groovy-recommendations {
@@ -253,13 +201,8 @@
         {% for product in recommendations %}
           <div class="groovy-recommendation-card">
             <div class="groovy-recommendation-card__image-wrap">
-              {% if product.available %}
-                <div class="groovy-recommendation-card__badges">
-                  <span class="groovy-recommendation-card__badge">Available</span>
-                  {% if product.compare_at_price > product.price %}
-                    <span class="groovy-recommendation-card__badge groovy-recommendation-card__badge--sale">Sale</span>
-                  {% endif %}
-                </div>
+              {% if product.compare_at_price > product.price %}
+                <span class="groovy-recommendation-card__badge">Sale</span>
               {% endif %}
               
               <a href="{{ product.url }}">
@@ -281,37 +224,22 @@
               </a>
             </div>
             
-            <div class="groovy-recommendation-card__content">
-              <h3 class="groovy-recommendation-card__title">
-                <a href="{{ product.url }}" style="color: inherit; text-decoration: none;">
-                  {{ product.title }}
-                </a>
-              </h3>
-              
-              <div class="groovy-recommendation-card__price">
-                {%- render 'price',
-                  product: product,
-                  use_variant: true,
-                  show_badges: false,
-                  price_class: 'price--large'
-                -%}
-              </div>
-              
-              <div class="groovy-recommendation-card__buttons">
-                {% if product.available %}
-                  <form method="post" action="/cart/add" class="groovy-recommendation-card__btn groovy-recommendation-card__btn--primary">
-                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                    <input type="hidden" name="quantity" value="1">
-                    <button type="submit" style="background: none; border: none; color: inherit; font: inherit; cursor: pointer; width: 100%;">
-                      Add to Cart
-                    </button>
-                  </form>
-                {% endif %}
-                <a href="{{ product.url }}" class="groovy-recommendation-card__btn">
-                  View Details
-                </a>
-              </div>
-            </div>
+                           <div class="groovy-recommendation-card__content">
+                 <h3 class="groovy-recommendation-card__title">
+                   <a href="{{ product.url }}" style="color: inherit; text-decoration: none;">
+                     {{ product.title }}
+                   </a>
+                 </h3>
+                 
+                 <div class="groovy-recommendation-card__price">
+                   {%- render 'price',
+                     product: product,
+                     use_variant: true,
+                     show_badges: false,
+                     price_class: 'price--large'
+                   -%}
+                 </div>
+               </div>
           </div>
         {% endfor %}
       {% else %}
@@ -319,16 +247,11 @@
         {% assign fallback_products = collections.all.products | limit: section.settings.products_to_show %}
         {% for product in fallback_products %}
           {% if product.id != current_product.id %}
-            <div class="groovy-recommendation-card">
-              <div class="groovy-recommendation-card__image-wrap">
-                {% if product.available %}
-                  <div class="groovy-recommendation-card__badges">
-                    <span class="groovy-recommendation-card__badge">Available</span>
-                    {% if product.compare_at_price > product.price %}
-                      <span class="groovy-recommendation-card__badge groovy-recommendation-card__badge--sale">Sale</span>
-                    {% endif %}
-                  </div>
-                {% endif %}
+                         <div class="groovy-recommendation-card">
+               <div class="groovy-recommendation-card__image-wrap">
+                 {% if product.compare_at_price > product.price %}
+                   <span class="groovy-recommendation-card__badge">Sale</span>
+                 {% endif %}
                 
                 <a href="{{ product.url }}">
                   {% if product.featured_media %}
@@ -363,21 +286,6 @@
                     show_badges: false,
                     price_class: 'price--large'
                   -%}
-                </div>
-                
-                <div class="groovy-recommendation-card__buttons">
-                  {% if product.available %}
-                    <form method="post" action="/cart/add" class="groovy-recommendation-card__btn groovy-recommendation-card__btn--primary">
-                      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                      <input type="hidden" name="quantity" value="1">
-                      <button type="submit" style="background: none; border: none; color: inherit; font: inherit; cursor: pointer; width: 100%;">
-                        Add to Cart
-                      </button>
-                    </form>
-                  {% endif %}
-                  <a href="{{ product.url }}" class="groovy-recommendation-card__btn">
-                    View Details
-                  </a>
                 </div>
               </div>
             </div>
