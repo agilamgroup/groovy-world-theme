@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
   --alpha-button-background: 1;
@@ -11,7 +12,44 @@
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
   --font-body-family: 'Preahvihear', sans-serif;
   --font-heading-family: 'Preahvihear', sans-serif;
+  --font-body-size: 1.3rem;
+  --font-body-size-large: 1.5rem;
+  --font-body-size-small: 1rem;
   --color-background: 255, 255, 255;
+}
+
+/* Globale Fließtext-Größe für alle Seiten */
+body {
+  font-size: var(--font-body-size);
+}
+
+p, .text-body, .rte p, .customer p, .form__label, .field__input, .select__select {
+  font-size: var(--font-body-size);
+}
+
+/* Buttons und interaktive Elemente */
+.button, .link, .link-with-icon {
+  font-size: var(--font-body-size);
+}
+
+/* Preise und Produktinformationen */
+.price, .price--large, .totals > * {
+  font-size: var(--font-body-size);
+}
+
+/* Tabellen */
+table:not([class]), .customer table {
+  font-size: var(--font-body-size);
+}
+
+/* Formulare */
+.customer .field input, .customer select, .field__input, .form__label, .select__select {
+  font-size: var(--font-body-size);
+}
+
+/* Caption und kleine Texte */
+.caption-large, .customer .field input, .customer select, .field__input, .form__label, .select__select {
+  font-size: var(--font-body-size);
 }
 
 .product-card-wrapper .card {
