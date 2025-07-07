@@ -3,58 +3,63 @@
 <div class="gw-product-grid" style="padding: 60px 0; background: #fff;">
   <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
     <!-- Products Grid -->
-    {% comment %} Sort products: available first, then unavailable {% endcomment %}
-    {% assign available_products = collection.products | where: 'available', true %}
-    {% assign unavailable_products = collection.products | where: 'available', false %}
-    {% assign sorted_products = available_products | concat: unavailable_products %}
-    
-    {% if sorted_products.size > 0 %}
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, 260px); gap: 32px; justify-content: start; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0;">
-        {% for product in sorted_products %}
-          <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%; transition: all 0.3s ease; cursor: pointer; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';">
-            <!-- Produktbild -->
-            <a href="{{ product.url }}" style="display: block; margin-bottom: 16px;">
-              <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff;" />
-            </a>
-            <!-- Status-Badges -->
-            <div style="position: absolute; left: 18px; top: 18px; display: flex; gap: 8px;">
-              {% if product.available %}
-                <span style="background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Available</span>
-                {% if product.compare_at_price > product.price %}
-                  <span style="background: #ffeaea; color: #ff2d2d; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 700; border: 1.5px solid #ff2d2d;">Sale</span>
+    {% comment %} Use latest-books collection and sort products: available first, then unavailable {% endcomment %}
+    {% assign latest_books_collection = collections['latest-books'] %}
+    {% if latest_books_collection %}
+      {% assign available_products = latest_books_collection.products | where: 'available', true %}
+      {% assign unavailable_products = latest_books_collection.products | where: 'available', false %}
+      {% assign sorted_products = available_products | concat: unavailable_products %}
+      
+      {% if sorted_products.size > 0 %}
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, 260px); gap: 32px; justify-content: start; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0;">
+          {% for product in sorted_products %}
+            <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%; transition: all 0.3s ease; cursor: pointer; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';">
+              <!-- Produktbild -->
+              <a href="{{ product.url }}" style="display: block; margin-bottom: 16px;">
+                <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff;" />
+              </a>
+              <!-- Status-Badges -->
+              <div style="position: absolute; left: 18px; top: 18px; display: flex; gap: 8px;">
+                {% if product.available %}
+                  <span style="background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Available</span>
+                  {% if product.compare_at_price > product.price %}
+                    <span style="background: #ffeaea; color: #ff2d2d; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 700; border: 1.5px solid #ff2d2d;">Sale</span>
+                  {% endif %}
+                {% else %}
+                  <span style="background: #fff3e6; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Coming Soon</span>
                 {% endif %}
-              {% else %}
-                <span style="background: #fff3e6; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Coming Soon</span>
-              {% endif %}
-            </div>
-            <!-- Titel -->
-            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ product.title }}</div>
-            <!-- Preis -->
-            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
-              {% if product.compare_at_price > product.price %}
-                <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ product.compare_at_price | money_with_currency }}</span>
-                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
-              {% else %}
-                <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
-              {% endif %}
-            </div>
-            <!-- Buttons - nur bei verfügbaren Produkten -->
-            {% if product.available %}
-              <div style="width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
-                <a href="{{ product.url }}" style="display: block; width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; transition: background 0.2s, color 0.2s;">Buy Now</a>
-                <form method="post" action="/cart/add" style="width: 100%;">
-                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                  <button type="submit" style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; margin-top: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s, color 0.2s;">
-                    <span style="font-size: 1.1em;">🛒</span> Add to Cart
-                  </button>
-                </form>
               </div>
-            {% endif %}
-          </div>
-        {% endfor %}
-      </div>
+              <!-- Titel -->
+              <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ product.title }}</div>
+              <!-- Preis -->
+              <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
+                {% if product.compare_at_price > product.price %}
+                  <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ product.compare_at_price | money_with_currency }}</span>
+                  <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
+                {% else %}
+                  <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
+                {% endif %}
+              </div>
+              <!-- Buttons - nur bei verfügbaren Produkten -->
+              {% if product.available %}
+                <div style="width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+                  <a href="{{ product.url }}" style="display: block; width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; transition: background 0.2s, color 0.2s;">Buy Now</a>
+                  <form method="post" action="/cart/add" style="width: 100%;">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; margin-top: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s, color 0.2s;">
+                      <span style="font-size: 1.1em;">🛒</span> Add to Cart
+                    </button>
+                  </form>
+                </div>
+              {% endif %}
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div style="text-align: left; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.3rem;">No products available in the latest-books collection.</div>
+      {% endif %}
     {% else %}
-      <div style="text-align: left; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.3rem;">No products available in this collection.</div>
+      <div style="text-align: left; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.3rem;">Latest-books collection not found.</div>
     {% endif %}
   </div>
 </div>
