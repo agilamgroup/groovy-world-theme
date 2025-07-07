@@ -21,7 +21,7 @@
       <div style="display: grid; grid-template-columns: repeat({{ recommendations.size }}, 1fr); gap: 32px; justify-content: start; margin: 0; {% if recommendations.size == 2 %}max-width: 500px;{% elsif recommendations.size == 3 %}max-width: 750px;{% else %}max-width: 900px;{% endif %}">
         {% for rec in recommendations %}
           <a href="{{ rec.url }}" style="text-decoration: none; display: block;">
-            <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: pointer;">
+            <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%; transition: all 0.3s ease; cursor: pointer; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';">
               <!-- Produktbild -->
               <div style="margin-bottom: 16px;">
                 <div style="position: relative; width: 170px; height: 230px;">
