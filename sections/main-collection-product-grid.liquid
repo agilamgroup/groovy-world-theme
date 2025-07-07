@@ -82,6 +82,16 @@
     font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
     display: inline-block;
   }
+  .gw-badge-unavailable {
+    background: #fff3e6;
+    color: #ff6b35;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 16px;
+    padding: 0.25em 1.1em;
+    font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
+    display: inline-block;
+  }
   .gw-card-content {
     padding: 1.2rem 1.5rem 1.5rem 1.5rem;
     width: 100%;
@@ -161,6 +171,12 @@
     border-color: #eee;
     cursor: not-allowed;
   }
+  .gw-btn.buy:disabled {
+    background: #eee;
+    color: #bbb;
+    border-color: #eee;
+    cursor: not-allowed;
+  }
   .gw-cart-icon {
     width: 1.2em;
     height: 1.2em;
@@ -196,7 +212,12 @@
 
 <div class="gw-product-grid">
   <div class="gw-grid">
-    {% for product in collection.products %}
+    {% comment %} Sort products: available first, then unavailable {% endcomment %}
+    {% assign available_products = collection.products | where: 'available', true %}
+    {% assign unavailable_products = collection.products | where: 'available', false %}
+    {% assign sorted_products = available_products | concat: unavailable_products %}
+    
+    {% for product in sorted_products %}
       <div class="gw-card">
         <div class="gw-card-image-wrap">
           {% if product.available %}
@@ -205,6 +226,10 @@
               {% if product.compare_at_price > product.price %}
                 <span class="gw-badge-sale">Sale</span>
               {% endif %}
+            </div>
+          {% else %}
+            <div class="gw-badge-stack">
+              <span class="gw-badge-unavailable">Coming Soon</span>
             </div>
           {% endif %}
           <a href="{{ product.url }}">
@@ -236,7 +261,11 @@
             {% endif %}
           </div>
           <div class="gw-card-buttons">
-            <a href="{{ product.url }}" class="gw-btn buy">Buy Now</a>
+            {% if product.available %}
+              <a href="{{ product.url }}" class="gw-btn buy">Buy Now</a>
+            {% else %}
+              <a href="{{ product.url }}" class="gw-btn buy" style="background: #eee; color: #bbb; border-color: #eee; cursor: not-allowed; pointer-events: none;">Buy Now</a>
+            {% endif %}
             <form action="/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
               <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
               <button type="submit" class="gw-btn cart" {% unless product.available %}disabled{% endunless %}>
