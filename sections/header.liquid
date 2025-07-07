@@ -260,7 +260,9 @@
 
     <!-- Burger-Menü für Mobile -->
     <div class="header__burger-menu" style="display: none;">
-      {% render 'header-drawer' %}
+      <nav>
+        {% render 'main-nav' %}
+      </nav>
     </div>
     <style>
       @media (max-width: 989px) {
@@ -277,19 +279,7 @@
 
     <!-- Navigation -->
     <nav class="header__nav">
-      <ul class="header__nav-list">
-        <li><a href="/#hero" class="header__nav-item">Home</a></li>
-        <li><a href="/#latest-books" class="header__nav-item">Books</a></li>
-        <li><a href="/#reasons" class="header__nav-item">Why Groovy?</a></li>
-        <li><a href="/#faq" class="header__nav-item">FAQ</a></li>
-        <li><a href="/#contact" class="header__nav-item">Contact</a></li>
-        <li><a href="/collections/all" class="header__nav-item">Shop</a></li>
-        <li>
-          <a href="/cart" class="header__nav-item">
-            Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
-          </a>
-        </li>
-      </ul>
+      {% render 'main-nav' %}
     </nav>
 
     <!-- CTA Button -->
