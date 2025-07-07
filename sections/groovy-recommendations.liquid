@@ -78,17 +78,16 @@
     align-items: center;
     background: #f6f7fb;
     border-radius: 18px;
-    min-height: 220px;
-    height: 220px;
-    max-height: 250px;
+    min-height: 180px;
+    padding: 1.2rem;
     margin: 0 0 1.2rem 0;
     box-shadow: 0 2px 8px rgba(36, 101, 170, 0.06);
     overflow: hidden;
   }
   
   .groovy-recommendation-card__image {
-    max-width: 90%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 160px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -164,7 +163,12 @@
     font-weight: 700;
   }
   
-
+  .badge.price__badge-sale {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 2;
+  }
   
   @media (max-width: 768px) {
     .groovy-recommendations {
@@ -212,7 +216,9 @@
           <div class="groovy-recommendation-card">
             <div class="groovy-recommendation-card__image-wrap">
               {% if product.compare_at_price > product.price %}
-                <span class="groovy-recommendation-card__badge">Sale</span>
+                <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+                  {{ 'products.product.on_sale' | t }}
+                </span>
               {% endif %}
               
               <a href="{{ product.url }}">
@@ -260,7 +266,9 @@
                          <div class="groovy-recommendation-card">
                <div class="groovy-recommendation-card__image-wrap">
                  {% if product.compare_at_price > product.price %}
-                   <span class="groovy-recommendation-card__badge">Sale</span>
+                   <span class="badge price__badge-sale color-{{ settings.sale_badge_color_scheme }}">
+                     {{ 'products.product.on_sale' | t }}
+                   </span>
                  {% endif %}
                 
                 <a href="{{ product.url }}">
