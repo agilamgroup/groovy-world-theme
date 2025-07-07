@@ -23,7 +23,8 @@ body {
   font-size: var(--font-body-size);
 }
 
-p, .text-body, .rte p, .customer p, .form__label, .field__input, .select__select {
+/* Grundlegende Textelemente */
+p, .text-body, .rte p, .customer p {
   font-size: var(--font-body-size);
 }
 
@@ -42,13 +43,8 @@ table:not([class]), .customer table {
   font-size: var(--font-body-size);
 }
 
-/* Formulare */
-.customer .field input, .customer select, .field__input, .form__label, .select__select {
-  font-size: var(--font-body-size);
-}
-
-/* Caption und kleine Texte */
-.caption-large, .customer .field input, .customer select, .field__input, .form__label, .select__select {
+/* Formulare und Eingabefelder */
+.form__label, .field__input, .select__select, .customer .field input, .customer select, .caption-large {
   font-size: var(--font-body-size);
 }
 
@@ -70,7 +66,7 @@ table:not([class]), .customer table {
   --shadow-blur-radius: var(--product-card-shadow-blur-radius);
   --shadow-opacity: var(--product-card-shadow-opacity);
   --shadow-visible: var(--product-card-shadow-visible);
-  --image-padding: Invar(--product-card-image-padding);
+  --image-padding: var(--product-card-image-padding);
   --text-alignment: var(--product-card-text-alignment);
 }
 
