@@ -1,281 +1,61 @@
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
-<style>
-  .gw-product-grid {
-    padding: 2.5rem 0 3rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .gw-product-grid .gw-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 2.2rem;
-    padding: 0 1rem;
-  }
-  .gw-card {
-    background: #fff;
-    border-radius: 22px;
-    box-shadow: 0 6px 32px rgba(36,101,170,0.08);
-    border: none;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    transition: box-shadow 0.18s, transform 0.18s;
-    min-height: 480px;
-  }
-  .gw-card:hover {
-    box-shadow: 0 12px 36px rgba(36,101,170,0.16);
-    transform: translateY(-3px) scale(1.012);
-  }
-  .gw-card-image-wrap {
-    width: 100%;
-    padding: 2rem 2rem 0 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    position: relative;
-  }
-  .gw-card-image {
-    width: 100%;
-    max-width: 220px;
-    height: 220px;
-    object-fit: contain;
-    background: #f8f8f8;
-    border: 2px solid #2465aa;
-    border-radius: 14px;
-    box-shadow: 0 2px 8px rgba(36,101,170,0.07);
-    margin: 0 auto;
-    display: block;
-  }
-  .gw-badge-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    position: absolute;
-    top: 1.2rem;
-    left: 2rem;
-    z-index: 2;
-  }
-  .gw-badge {
-    background: #eafff2;
-    color: #1db16b;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 16px;
-    padding: 0.25em 1.1em;
-    box-shadow: 0 1px 4px rgba(36,101,170,0.07);
-    font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
-    letter-spacing: 0.01em;
-    display: inline-block;
-  }
-  .gw-badge-sale {
-    background: #ffeaea;
-    color: #ff2d2d;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 16px;
-    padding: 0.25em 1.1em;
-    border: 1.5px solid #ff2d2d;
-    font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
-    display: inline-block;
-  }
-  .gw-badge-unavailable {
-    background: #fff3e6;
-    color: #ff6b35;
-    font-size: 1rem;
-    font-weight: 700;
-    border-radius: 16px;
-    padding: 0.25em 1.1em;
-    font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
-    display: inline-block;
-  }
-  .gw-card-content {
-    padding: 1.2rem 1.5rem 1.5rem 1.5rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-  }
-  .gw-title {
-    font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: #222;
-    text-align: center;
-    margin: 0.7rem 0 0.5rem 0;
-    min-height: 2.5em;
-    line-height: 1.2;
-  }
-  .gw-prices {
-    margin-bottom: 1.1rem;
-    text-align: center;
-    font-size: 1.3rem;
-  }
-  .gw-old-price {
-    text-decoration: line-through;
-    color: #aaa;
-    font-size: 1rem;
-    margin-right: 0.5em;
-    font-weight: 400;
-  }
-  .gw-new-price {
-    color: #ff6b35;
-    font-size: 1.3rem;
-    font-weight: 700;
-  }
-  .gw-card-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-  .gw-btn {
-    border: 2px solid #ff6b35;
-    color: #ff6b35;
-    background: #fff;
-    border-radius: 6px;
-    font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding: 0.7em 0;
-    width: 100%;
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
-    box-shadow: 0 1px 4px rgba(36,101,170,0.04);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5em;
-  }
-  .gw-btn.buy {
-    background: #ff6b35;
-    color: #fff;
-    border: 2px solid #ff6b35;
-  }
-  .gw-btn.buy:hover {
-    background: #fff3ec;
-    color: #ff6b35;
-  }
-  .gw-btn.cart:hover {
-    background: #fff3ec;
-    color: #ff6b35;
-  }
-  .gw-btn:disabled {
-    background: #eee;
-    color: #bbb;
-    border-color: #eee;
-    cursor: not-allowed;
-  }
-  .gw-btn.buy:disabled {
-    background: #eee;
-    color: #bbb;
-    border-color: #eee;
-    cursor: not-allowed;
-  }
-  .gw-cart-icon {
-    width: 1.2em;
-    height: 1.2em;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 0.2em;
-    margin-bottom: 2px;
-  }
-  @media (max-width: 900px) {
-    .gw-product-grid .gw-grid {
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
-    }
-    .gw-card-image {
-      max-width: 150px;
-      height: 150px;
-    }
-  }
-  @media (max-width: 600px) {
-    .gw-product-grid {
-      padding: 1.2rem 0 2rem 0;
-    }
-    .gw-product-grid .gw-grid {
-      grid-template-columns: 1fr;
-      gap: 1rem;
-      padding: 0 0.2rem;
-    }
-    .gw-card-content {
-      padding: 0.8rem 0.5rem 1rem 0.5rem;
-    }
-  }
-</style>
-
-<div class="gw-product-grid">
-  <div class="gw-grid">
+<div class="gw-product-grid" style="padding: 80px 0; background: #fff;">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <!-- Products Grid -->
     {% comment %} Sort products: available first, then unavailable {% endcomment %}
     {% assign available_products = collection.products | where: 'available', true %}
     {% assign unavailable_products = collection.products | where: 'available', false %}
     {% assign sorted_products = available_products | concat: unavailable_products %}
     
-    {% for product in sorted_products %}
-      <div class="gw-card">
-        <div class="gw-card-image-wrap">
-          {% if product.available %}
-            <div class="gw-badge-stack">
-              <span class="gw-badge">Available</span>
-              {% if product.compare_at_price > product.price %}
-                <span class="gw-badge-sale">Sale</span>
+    {% if sorted_products.size > 0 %}
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, 260px); gap: 32px; justify-content: center; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0 auto;">
+        {% for product in sorted_products %}
+          <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%;">
+            <!-- Produktbild -->
+            <a href="{{ product.url }}" style="display: block; margin-bottom: 16px;">
+              <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff;" />
+            </a>
+            <!-- Status-Badges -->
+            <div style="position: absolute; left: 18px; top: 18px; display: flex; gap: 8px;">
+              {% if product.available %}
+                <span style="background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Available</span>
+                {% if product.compare_at_price > product.price %}
+                  <span style="background: #ffeaea; color: #ff2d2d; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 700; border: 1.5px solid #ff2d2d;">Sale</span>
+                {% endif %}
+              {% else %}
+                <span style="background: #fff3e6; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Coming Soon</span>
               {% endif %}
             </div>
-          {% else %}
-            <div class="gw-badge-stack">
-              <span class="gw-badge-unavailable">Coming Soon</span>
+            <!-- Titel -->
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.35rem; font-weight: 700; color: #111; margin: 18px 0 6px 0; text-align: center;">{{ product.title }}</div>
+            <!-- Preis -->
+            <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
+              {% if product.compare_at_price > product.price %}
+                <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ product.compare_at_price | money_with_currency }}</span>
+                <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
+              {% else %}
+                <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
+              {% endif %}
             </div>
-          {% endif %}
-          <a href="{{ product.url }}">
-            {% if product.featured_media %}
-              <img 
-                src="{{ product.featured_media | image_url: width: 400 }}"
-                alt="{{ product.featured_media.alt | escape | default: product.title }}"
-                class="gw-card-image"
-                loading="lazy"
-              >
-            {% else %}
-              <img 
-                src="https://cdn.shopify.com/s/files/1/0533/2089/files/placeholder-image.png"
-                alt="Product placeholder"
-                class="gw-card-image"
-                style="opacity: 0.5;"
-              >
-            {% endif %}
-          </a>
-        </div>
-        <div class="gw-card-content">
-          <div class="gw-title">{{ product.title }}</div>
-          <div class="gw-prices">
-            {% if product.compare_at_price > product.price %}
-              <span class="gw-old-price">{{ product.compare_at_price | money }}</span>
-              <span class="gw-new-price">{{ product.price | money }}</span>
-            {% else %}
-              <span class="gw-new-price">{{ product.price | money }}</span>
-            {% endif %}
-          </div>
-          <div class="gw-card-buttons">
+            <!-- Buttons - nur bei verfügbaren Produkten -->
             {% if product.available %}
-              <a href="{{ product.url }}" class="gw-btn buy">Buy Now</a>
-            {% else %}
-              <a href="{{ product.url }}" class="gw-btn buy" style="background: #eee; color: #bbb; border-color: #eee; cursor: not-allowed; pointer-events: none;">Buy Now</a>
+              <div style="width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
+                <a href="{{ product.url }}" style="display: block; width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; transition: background 0.2s, color 0.2s;">Buy Now</a>
+                <form method="post" action="/cart/add" style="width: 100%;">
+                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                  <button type="submit" style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; margin-top: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s, color 0.2s;">
+                    <span style="font-size: 1.1em;">🛒</span> Add to Cart
+                  </button>
+                </form>
+              </div>
             {% endif %}
-            <form action="/cart/add" method="post" enctype="multipart/form-data" style="margin:0;">
-              <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-              <button type="submit" class="gw-btn cart" {% unless product.available %}disabled{% endunless %}>
-                <span class="gw-cart-icon">🛒</span> Add to Cart
-              </button>
-            </form>
           </div>
-        </div>
+        {% endfor %}
       </div>
-    {% endfor %}
+    {% else %}
+      <div style="text-align: center; color: #888; font-family: 'Preahvihear', sans-serif; font-size: 1.3rem;">No products available in this collection.</div>
+    {% endif %}
   </div>
 </div>
 
