@@ -1,3 +1,19 @@
+{% assign nav_mode = mode | default: 'desktop' %}
+{% if nav_mode == 'drawer' %}
+<ul class="menu-drawer__menu list-menu">
+  <li><a href="/#hero" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Home</a></li>
+  <li><a href="/#latest-books" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Books</a></li>
+  <li><a href="/#reasons" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Why Groovy?</a></li>
+  <li><a href="/#faq" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">FAQ</a></li>
+  <li><a href="/#contact" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Contact</a></li>
+  <li><a href="/collections/all" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
+  <li>
+    <a href="/cart" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">
+      Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
+    </a>
+  </li>
+</ul>
+{% else %}
 <ul class="header__nav-list">
   <li><a href="/#hero" class="header__nav-item">Home</a></li>
   <li><a href="/#latest-books" class="header__nav-item">Books</a></li>
@@ -10,4 +26,5 @@
       Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
     </a>
   </li>
-</ul> 
+</ul>
+{% endif %} 
