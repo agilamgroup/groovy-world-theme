@@ -5,7 +5,7 @@
 
 <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
-<section id="latest-books" class="latest-books-section" style="padding: 80px 0; background: #fff;">
+<section id="latest-books" class="latest-books-section" style="padding: 50px 0; background: #fff;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <!-- Badge -->
     <div style="text-align: center; margin-bottom: 18px;">
@@ -71,6 +71,18 @@
 </section>
 
 <style>
+/* Responsive padding */
+@media (max-width: 768px) {
+  .latest-books-section {
+    padding: 35px 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .latest-books-section {
+    padding: 25px 0 !important;
+  }
+}
+
 @media (max-width: 750px) {
   .latest-books-grid {
     display: flex !important;
