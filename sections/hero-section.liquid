@@ -3,7 +3,7 @@
   Replicates the WordPress homepage hero section
 {% endcomment %}
 
-<div class="hero-section" style="min-height: 100vh; background: rgb(var(--color-background)); background-image: url('{{ 'hero_web.png' | asset_url }}'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; align-items: center; padding: 40px 20px;">
+<div class="hero-section" style="min-height: 100vh; background: rgb(var(--color-background)); background-image: url('{{ 'hero_web.png' | asset_url }}'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; align-items: center; padding: 40px 20px; position: relative;">
   <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: row; gap: 60px; align-items: center; width: 100%;">
     <div style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; background: rgba(255,255,255,0.0);">
       <!-- Badge -->
@@ -41,11 +41,11 @@
   .hero-mascot-mobile {
     display: block;
     position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 220px;
-    max-width: 60vw;
-    z-index: 2;
+    right: 8px;
+    bottom: 8px;
+    width: 140px;
+    max-width: 40vw;
+    z-index: 0;
     pointer-events: none;
   }
 }
