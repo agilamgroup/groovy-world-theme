@@ -420,59 +420,46 @@
 
   // Live-Update Cart Count in Header
   document.addEventListener('DOMContentLoaded', function() {
-    // Function to update cart count
     function updateCartCount() {
       fetch('/cart.js')
         .then(response => response.json())
         .then(cart => {
-          const cartLinks = document.querySelectorAll('.header__nav-item a[href="/cart"]');
-          cartLinks.forEach(function(link) {
+          const cartLink = document.getElementById('main-menu-cart-link');
+          if (cartLink) {
             if (cart.item_count > 0) {
-              link.textContent = `Cart (${cart.item_count})`;
+              cartLink.textContent = `Cart (${cart.item_count})`;
             } else {
-              link.textContent = 'Cart';
+              cartLink.textContent = 'Cart';
             }
-          });
+          }
         })
         .catch(error => {
           console.log('Could not update cart count:', error);
         });
     }
 
-    // Listen for cart update events from product-form
     document.addEventListener('cartUpdate', function(event) {
-      console.log('Cart update detected, updating count...');
-      setTimeout(updateCartCount, 500); // Small delay to ensure cart is updated
-    });
-
-    // Also listen for the specific cart update from product-form
-    document.addEventListener('cart:updated', function(event) {
-      console.log('Cart updated event detected, updating count...');
       setTimeout(updateCartCount, 500);
     });
-
-    // Listen for the PUB_SUB_EVENTS.cartUpdate event
+    document.addEventListener('cart:updated', function(event) {
+      setTimeout(updateCartCount, 500);
+    });
     if (window.PUB_SUB_EVENTS && window.PUB_SUB_EVENTS.cartUpdate) {
       document.addEventListener(PUB_SUB_EVENTS.cartUpdate, function(event) {
-        console.log('PUB_SUB cart update detected, updating count...');
         setTimeout(updateCartCount, 500);
       });
     }
-
-    // Also update when cart notification appears
     const cartNotification = document.querySelector('cart-notification');
     if (cartNotification) {
       const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
           if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
             if (cartNotification.classList.contains('active')) {
-              console.log('Cart notification appeared, updating count...');
               setTimeout(updateCartCount, 100);
             }
           }
         });
       });
-      
       observer.observe(cartNotification, {
         attributes: true,
         attributeFilter: ['class']
