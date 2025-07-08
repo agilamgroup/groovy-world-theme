@@ -3,6 +3,8 @@
   Design wie Screenshot, alle Texte Englisch
 {% endcomment %}
 
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
 <section id="latest-books" class="latest-books-section" style="padding: 80px 0; background: #fff;">
   <div style="max-width: 1200px; margin: 0 auto;">
     <!-- Badge -->
@@ -54,12 +56,7 @@
             {% if product.available %}
               <div style="width: 100%; margin-top: auto; display: flex; flex-direction: column; gap: 8px;">
                 <a href="{{ product.url }}" style="display: block; width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; text-align: center; text-decoration: none; transition: background 0.2s, color 0.2s;">Buy Now</a>
-                <form method="post" action="/cart/add" style="width: 100%;">
-                  <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                  <button type="submit" style="width: 100%; border: 2px solid #ff6b35; color: #ff6b35; background: #fff; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-size: 1.2rem; font-weight: 600; padding: 8px 0; margin-top: 0; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.2s, color 0.2s;">
-                    <span style="font-size: 1.1em;">🛒</span> Add to Cart
-                  </button>
-                </form>
+                {%- render 'buy-buttons', product: product, product_form_id: 'product-form-latest-books-' | append: forloop.index, section_id: section.id -%}
               </div>
             {% endif %}
           </div>
