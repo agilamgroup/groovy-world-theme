@@ -418,16 +418,22 @@
 
   customElements.define('sticky-header', StickyHeader);
 
-  // Debugging für Cart Live-Update
+  // Debugging für Cart Live-Update (Desktop & Mobile)
   document.addEventListener('DOMContentLoaded', function() {
     console.log('Cart-Update-Script geladen');
     function updateCartCount() {
       console.log('updateCartCount() aufgerufen');
-      const cartLink = document.getElementById('main-menu-cart-link');
-      if (!cartLink) {
-        console.log('Cart-Link mit ID main-menu-cart-link NICHT gefunden!');
+      const desktopCartLink = document.getElementById('main-menu-cart-link');
+      const mobileCartLink = document.getElementById('mobile-menu-cart-link');
+      if (!desktopCartLink) {
+        console.log('Desktop-Cart-Link NICHT gefunden!');
       } else {
-        console.log('Cart-Link gefunden:', cartLink.textContent);
+        console.log('Desktop-Cart-Link gefunden:', desktopCartLink.textContent);
+      }
+      if (!mobileCartLink) {
+        console.log('Mobile-Cart-Link NICHT gefunden!');
+      } else {
+        console.log('Mobile-Cart-Link gefunden:', mobileCartLink.textContent);
       }
       fetch('/cart.js')
         .then(response => {
@@ -436,14 +442,16 @@
         })
         .then(cart => {
           console.log('Cart-Objekt:', cart);
-          if (cartLink) {
-            if (cart.item_count > 0) {
-              cartLink.textContent = `Cart (${cart.item_count})`;
-            } else {
-              cartLink.textContent = 'Cart';
+          [desktopCartLink, mobileCartLink].forEach(cartLink => {
+            if (cartLink) {
+              if (cart.item_count > 0) {
+                cartLink.textContent = `Cart (${cart.item_count})`;
+              } else {
+                cartLink.textContent = 'Cart';
+              }
+              console.log('Cart-Link nach Update:', cartLink.textContent);
             }
-            console.log('Cart-Link nach Update:', cartLink.textContent);
-          }
+          });
         })
         .catch(error => {
           console.log('Could not update cart count:', error);
@@ -484,8 +492,6 @@
         attributeFilter: ['class']
       });
     }
-
-    // Intervall-Update alle 2 Sekunden als Fallback
     setInterval(updateCartCount, 2000);
   });
 {% endjavascript %}
