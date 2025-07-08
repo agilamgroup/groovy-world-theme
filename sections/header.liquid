@@ -438,6 +438,10 @@
         });
     }
 
+    // Initiales Update beim Laden der Seite
+    updateCartCount();
+
+    // Update bei Cart-Events
     document.addEventListener('cartUpdate', function(event) {
       setTimeout(updateCartCount, 500);
     });
@@ -449,6 +453,7 @@
         setTimeout(updateCartCount, 500);
       });
     }
+    // Update bei jedem Öffnen der Cart-Notification
     const cartNotification = document.querySelector('cart-notification');
     if (cartNotification) {
       const observer = new MutationObserver(function(mutations) {
