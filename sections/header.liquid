@@ -484,6 +484,9 @@
         attributeFilter: ['class']
       });
     }
+
+    // Intervall-Update alle 2 Sekunden als Fallback
+    setInterval(updateCartCount, 2000);
   });
 {% endjavascript %}
 
