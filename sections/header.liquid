@@ -418,19 +418,31 @@
 
   customElements.define('sticky-header', StickyHeader);
 
-  // Live-Update Cart Count in Header
+  // Debugging für Cart Live-Update
   document.addEventListener('DOMContentLoaded', function() {
+    console.log('Cart-Update-Script geladen');
     function updateCartCount() {
+      console.log('updateCartCount() aufgerufen');
+      const cartLink = document.getElementById('main-menu-cart-link');
+      if (!cartLink) {
+        console.log('Cart-Link mit ID main-menu-cart-link NICHT gefunden!');
+      } else {
+        console.log('Cart-Link gefunden:', cartLink.textContent);
+      }
       fetch('/cart.js')
-        .then(response => response.json())
+        .then(response => {
+          console.log('fetch /cart.js status:', response.status);
+          return response.json();
+        })
         .then(cart => {
-          const cartLink = document.getElementById('main-menu-cart-link');
+          console.log('Cart-Objekt:', cart);
           if (cartLink) {
             if (cart.item_count > 0) {
               cartLink.textContent = `Cart (${cart.item_count})`;
             } else {
               cartLink.textContent = 'Cart';
             }
+            console.log('Cart-Link nach Update:', cartLink.textContent);
           }
         })
         .catch(error => {
@@ -441,25 +453,27 @@
     // Initiales Update beim Laden der Seite
     updateCartCount();
 
-    // Update bei Cart-Events
     document.addEventListener('cartUpdate', function(event) {
+      console.log('cartUpdate Event gefeuert');
       setTimeout(updateCartCount, 500);
     });
     document.addEventListener('cart:updated', function(event) {
+      console.log('cart:updated Event gefeuert');
       setTimeout(updateCartCount, 500);
     });
     if (window.PUB_SUB_EVENTS && window.PUB_SUB_EVENTS.cartUpdate) {
       document.addEventListener(PUB_SUB_EVENTS.cartUpdate, function(event) {
+        console.log('PUB_SUB_EVENTS.cartUpdate Event gefeuert');
         setTimeout(updateCartCount, 500);
       });
     }
-    // Update bei jedem Öffnen der Cart-Notification
     const cartNotification = document.querySelector('cart-notification');
     if (cartNotification) {
       const observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
           if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
             if (cartNotification.classList.contains('active')) {
+              console.log('Cart-Notification wurde geöffnet');
               setTimeout(updateCartCount, 100);
             }
           }
