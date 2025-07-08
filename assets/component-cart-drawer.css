@@ -61,7 +61,7 @@ cart-drawer:not(.is-empty) .cart-drawer__collection {
 }
 
 .cart-drawer__warnings--has-collection .cart__login-title {
-  margin-top: 2.5rem;
+  display: none !important;
 }
 
 .drawer.active .drawer__inner {
