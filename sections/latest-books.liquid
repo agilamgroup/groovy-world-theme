@@ -22,10 +22,10 @@
     </div>
     <!-- Products Grid -->
     {% if section.settings.collection != blank and collections[section.settings.collection] %}
-      <div class="latest-books-grid" style="display: grid; grid-template-columns: repeat(auto-fit, 260px); gap: 32px; justify-content: center; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0 auto;">
+      <div class="latest-books-grid" style="display: grid; grid-template-columns: repeat(auto-fit, 260px); gap: 32px; justify-content: center; align-items: start; max-width: 900px; margin: 0 auto;">
         {% assign books = collections[section.settings.collection].products %}
         {% for product in books %}
-          <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%; transition: all 0.3s ease; cursor: pointer; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';">
+          <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; {% if product.available %}height: 100%;{% else %}height: auto; min-height: 280px;{% endif %} transition: all 0.3s ease; cursor: pointer; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';">
             <!-- Produktbild -->
             <a href="{{ product.url }}" style="display: block; margin-bottom: 16px;">
               <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff;" />
