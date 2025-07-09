@@ -21,6 +21,11 @@
 
 .collection-hero__text-wrapper {
   flex-basis: 100%;
+  padding: 1.5rem 0 1.5rem;
+}
+
+.collection-hero--with-image .collection-hero__text-wrapper {
+  padding: 2rem 0 1.5rem;
 }
 
 @media screen and (min-width: 750px) {
@@ -64,10 +69,6 @@
 
 .collection-hero--with-image .collection-hero__title {
   margin: 0;
-}
-
-.collection-hero--with-image .collection-hero__text-wrapper {
-  padding: 5rem 0 4rem;
 }
 
 .collection-hero__image-container {
