@@ -13,9 +13,9 @@
       {% assign sorted_products = available_products | concat: unavailable_products %}
       
       {% if sorted_products.size > 0 %}
-        <div class="product-page-grid" style="display: grid; grid-template-columns: repeat(auto-fit, 260px); gap: 32px; justify-content: start; align-items: stretch; grid-auto-rows: 1fr; max-width: 900px; margin: 0;">
+        <div class="product-page-grid" style="display: grid; grid-template-columns: repeat(auto-fit, 260px); gap: 32px; justify-content: start; align-items: start; max-width: 900px; margin: 0;">
           {% for product in sorted_products %}
-            <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; height: 100%; transition: all 0.3s ease; cursor: pointer; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';">
+            <div style="background: #fff; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.07); width: 220px; padding: 24px 18px 28px 18px; display: flex; flex-direction: column; align-items: center; position: relative; {% if product.available %}height: 100%;{% else %}height: auto; min-height: 280px;{% endif %} transition: all 0.3s ease; cursor: pointer; transform: scale(1);" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 8px 30px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';">
               <!-- Produktbild -->
               <a href="{{ product.url }}" style="display: block; margin-bottom: 16px;">
                 <img src="{{ product.featured_image | img_url: '400x' }}" alt="{{ product.title }}" style="width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff;" />

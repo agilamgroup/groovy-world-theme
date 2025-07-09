@@ -593,3 +593,23 @@
     clip-path: polygon(var(--shape--blob-5));
   }
 }
+
+/* Reduce card height for "Coming Soon" products (not available) */
+.card-wrapper:has(.price--sold-out) .card__content {
+  grid-template-rows: minmax(0, 1fr) max-content;
+  padding-bottom: 0.5rem;
+}
+
+.card-wrapper:has(.price--sold-out) .card__information {
+  padding-bottom: 0.5rem;
+}
+
+/* Alternative for browsers that don't support :has() */
+.card-wrapper .card__content:has(.price--sold-out) {
+  grid-template-rows: minmax(0, 1fr) max-content;
+  padding-bottom: 0.5rem;
+}
+
+.card-wrapper .card__information:has(.price--sold-out) {
+  padding-bottom: 0.5rem;
+}
