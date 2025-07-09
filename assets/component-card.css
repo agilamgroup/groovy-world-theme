@@ -596,20 +596,64 @@
 
 /* Reduce card height for "Coming Soon" products (not available) */
 .card-wrapper:has(.price--sold-out) .card__content {
-  grid-template-rows: minmax(0, 1fr) max-content;
-  padding-bottom: 0.5rem;
+  grid-template-rows: minmax(0, 1fr) max-content !important;
+  padding-bottom: 0.5rem !important;
 }
 
 .card-wrapper:has(.price--sold-out) .card__information {
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.5rem !important;
 }
 
 /* Alternative for browsers that don't support :has() */
 .card-wrapper .card__content:has(.price--sold-out) {
-  grid-template-rows: minmax(0, 1fr) max-content;
-  padding-bottom: 0.5rem;
+  grid-template-rows: minmax(0, 1fr) max-content !important;
+  padding-bottom: 0.5rem !important;
 }
 
 .card-wrapper .card__information:has(.price--sold-out) {
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.5rem !important;
+}
+
+/* More specific selectors for better browser support */
+.card-wrapper .price--sold-out ~ .card__content,
+.card-wrapper .price--sold-out + .card__content {
+  grid-template-rows: minmax(0, 1fr) max-content !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Target the specific section on homepage */
+.featured-collection .card-wrapper:has(.price--sold-out) .card__content,
+.featured-collection .card-wrapper .price--sold-out ~ .card__content {
+  grid-template-rows: minmax(0, 1fr) max-content !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.featured-collection .card-wrapper:has(.price--sold-out) .card__information,
+.featured-collection .card-wrapper .price--sold-out ~ .card__information {
+  padding-bottom: 0.5rem !important;
+}
+
+/* Direct class-based approach for unavailable products */
+.product-card--unavailable .card__content {
+  grid-template-rows: minmax(0, 1fr) max-content !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.product-card--unavailable .card__information {
+  padding-bottom: 0.5rem !important;
+}
+
+/* Ensure the card doesn't stretch to match others */
+.product-card--unavailable {
+  height: auto !important;
+  align-self: start !important;
+}
+
+/* Optimize grid layout for featured collection */
+.featured-collection .grid.product-grid {
+  align-items: start !important;
+}
+
+.featured-collection .grid__item {
+  align-self: start !important;
 }
