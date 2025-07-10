@@ -72,6 +72,8 @@
           {%- assign image_url = 'https:' | append: image_src -%}
         {%- elsif image_src contains 'http' -%}
           {%- assign image_url = image_src -%}
+        {%- elsif image_src != blank -%}
+          {%- assign image_url = image_src | image_url: width: 533, format: 'webp' -%}
         {%- endif -%}
 
         {%- if image_url != blank -%}
