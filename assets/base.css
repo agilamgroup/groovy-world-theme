@@ -2145,6 +2145,14 @@ input[type='checkbox'] {
   position: relative;
 }
 
+/* Mobile-specific positioning */
+@media screen and (max-width: 749px) {
+  .utility-bar {
+    position: relative;
+    top: 0;
+  }
+}
+
 /* Ensure announcement bar stays above sticky header */
 .shopify-section-group-header-group .utility-bar {
   z-index: 15;
