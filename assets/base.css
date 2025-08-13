@@ -2140,8 +2140,19 @@ input[type='checkbox'] {
 /* utility-bar */
 .utility-bar {
   height: 100%;
-  z-index: 5;
-  position: relative;
+  z-index: 10;
+  position: sticky;
+  top: 0;
+}
+
+/* Ensure announcement bar stays above sticky header */
+.shopify-section-group-header-group .utility-bar {
+  z-index: 15;
+}
+
+/* When header becomes sticky, ensure announcement bar stays on top */
+.shopify-section-header-sticky + .shopify-section-group-header-group .utility-bar {
+  z-index: 20;
 }
 
 .utility-bar--bottom-border {
@@ -2382,7 +2393,7 @@ input[type='checkbox'] {
 }
 
 .shopify-section-group-header-group {
-  z-index: 4;
+  z-index: 3;
 }
 
 .section-header ~ .shopify-section-group-header-group {
