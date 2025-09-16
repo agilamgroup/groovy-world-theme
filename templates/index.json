@@ -19,6 +19,77 @@
         "button_link": "#books"
       }
     },
+    "multicolumn_6E4FAJ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_jUabWb": {
+          "type": "column",
+          "settings": {
+            "title": "🚚 Free Shipping Across Canada",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_fNpmPw": {
+          "type": "column",
+          "settings": {
+            "title": "🔄 30-Day Money-Back Guarantee",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_RLwthm": {
+          "type": "column",
+          "settings": {
+            "title": "❤️ Trusted by Parents & Teachers",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_jUabWb",
+        "column_fNpmPw",
+        "column_RLwthm"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "17562885878412a6a4": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_featured_carousel_jD4p36": {
+          "type": "shopify://apps/judge-me-reviews/blocks/featured_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "maxwidth": 1080
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_featured_carousel_jD4p36"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
     "latest_books_8DHdaw": {
       "type": "latest-books",
       "name": "Latest Books",
@@ -41,6 +112,8 @@
   },
   "order": [
     "hero_section",
+    "multicolumn_6E4FAJ",
+    "17562885878412a6a4",
     "latest_books_8DHdaw",
     "features_section",
     "faq_section",

@@ -23,6 +23,10 @@
           "type": "title",
           "settings": {}
         },
+        "judge_me_reviews_preview_badge_DmtB4K": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "price": {
           "type": "price",
           "settings": {}
@@ -38,11 +42,37 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "icon_with_text_jXA3yG": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "truck",
+            "heading_1": "Free Shipping in Canada",
+            "icon_2": "return",
+            "heading_2": "30-Day Money-Back Guarantee",
+            "icon_3": "heart",
+            "heading_3": "Trusted by Parents & Teachers"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
+          }
+        },
+        "text_6KVDq7": {
+          "type": "text",
+          "settings": {
+            "text": "🔒 Secure checkout with Visa · Mastercard · PayPal · Apple Pay · Google Pay",
+            "text_style": "body"
+          }
+        },
+        "text_LmwHex": {
+          "type": "text",
+          "settings": {
+            "text": "📦 Delivery within 3–5 business days across Canada",
+            "text_style": "body"
           }
         },
         "description": {
@@ -59,10 +89,14 @@
       "block_order": [
         "vendor",
         "title",
+        "judge_me_reviews_preview_badge_DmtB4K",
         "price",
         "variant_picker",
         "quantity_selector",
+        "icon_with_text_jXA3yG",
         "buy_buttons",
+        "text_6KVDq7",
+        "text_LmwHex",
         "description",
         "share"
       ],
@@ -105,11 +139,30 @@
       "type": "recommendations",
       "name": "Product Recommendations",
       "settings": {}
+    },
+    "17562882121f337a00": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_6FkjRL": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_6FkjRL"
+      ],
+      "settings": {
+        "include_margins": true
+      }
     }
   },
   "order": [
     "main",
     "related-products",
-    "recommendations_LLhxXb"
+    "recommendations_LLhxXb",
+    "17562882121f337a00"
   ]
 }
