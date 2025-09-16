@@ -58,34 +58,28 @@
         style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
       >
         {%- assign product_image = card_product.featured_media -%}
-        {%- assign image_src = "" -%}
-        {%- if product_image and product_image.preview_image and product_image.preview_image.src -%}
-          {%- assign image_src = product_image.preview_image.src -%}
+        {%- assign image_obj = nil -%}
+        {%- if product_image -%}
+          {%- assign image_obj = product_image -%}
         {%- elsif card_product.featured_image != blank -%}
-          {%- assign image_src = card_product.featured_image -%}
+          {%- assign image_obj = card_product.featured_image -%}
         {%- elsif card_product.images and card_product.images.size > 0 -%}
-          {%- assign image_src = card_product.images[0] -%}
+          {%- assign image_obj = card_product.images[0] -%}
         {%- endif -%}
 
-        {%- assign image_url = "" -%}
-        {%- if image_src contains '//' -%}
-          {%- assign image_url = 'https:' | append: image_src -%}
-        {%- elsif image_src contains 'http' -%}
-          {%- assign image_url = image_src -%}
-        {%- elsif image_src != blank -%}
-          {%- assign image_url = image_src | image_url: width: 533, format: 'webp' -%}
-        {%- endif -%}
-
-        {%- if image_url != blank -%}
+        {%- if image_obj -%}
           <div class="card__media">
             <div class="media media--transparent media--hover-effect">
-              <img
-                src="{{ image_url }}"
-                alt="{{ product_image.alt | escape | default: 'Product image' }}"
-                class="motion-reduce"
-                loading="lazy"
-                style="width: 100%; height: auto;"
-              >
+              {{
+                image_obj
+                | image_url: width: 533
+                | image_tag:
+                  class: 'motion-reduce',
+                  loading: 'lazy',
+                  sizes: '(min-width: 990px) 235px, (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)',
+                  widths: '165, 320, 360, 470, 533, 600, 720, 940, 1066',
+                  alt: product_image.alt | default: card_product.title | escape
+              }}
             </div>
           </div>
         {%- else -%}
