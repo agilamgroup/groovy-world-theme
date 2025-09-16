@@ -3,7 +3,20 @@
   Replicates the WordPress homepage hero section
 {% endcomment %}
 
-<div class="hero-section" style="min-height: 100vh; background: rgb(var(--color-background)); background-image: url('{{ 'hero_web.png' | asset_url }}'); background-size: cover; background-position: center; background-repeat: no-repeat; display: flex; align-items: center; padding: 40px 20px; position: relative;">
+<div class="hero-section" style="min-height: 100vh; background: rgb(var(--color-background)); display: flex; align-items: center; padding: 40px 20px; position: relative; overflow: hidden;">
+  <!-- Optimized Hero Background Image -->
+  <img 
+    src="{{ 'hero_web.png' | image_url: width: 960 }}"
+    srcset="{{ 'hero_web.png' | image_url: width: 640 }} 640w,
+            {{ 'hero_web.png' | image_url: width: 960 }} 960w,
+            {{ 'hero_web.png' | image_url: width: 1280 }} 1280w"
+    sizes="(max-width: 768px) 100vw, 960px"
+    alt="Groovy Books Hero Background"
+    width="960" 
+    height="600"
+    fetchpriority="high"
+    decoding="async"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
   <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: row; gap: 60px; align-items: center; width: 100%;">
     <div style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; background: rgba(255,255,255,0.0);">
       <!-- Badge -->
@@ -37,8 +50,13 @@
 </div>
 
     </div>
-    <!-- Maskottchen als Hintergrund-Element -->
-    <img src="{{ 'groovy-character.png' | asset_url }}" alt="Groovy Character" class="hero-mascot-mobile" loading="lazy" />
+    <!-- Optimized Mascot Image -->
+    <img src="{{ 'groovy-character.png' | image_url: width: 360 }}" 
+         alt="Groovy Character" 
+         class="hero-mascot-mobile" 
+         width="180" 
+         height="191"
+         loading="lazy" />
     </div>
     <!-- Kein Bild mehr hier, da es als Hintergrund dient -->
   </div>
