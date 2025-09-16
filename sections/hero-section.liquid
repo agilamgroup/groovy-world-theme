@@ -46,14 +46,6 @@
 </div>
 
     </div>
-    <!-- Desktop Mascot Image (hidden on mobile) -->
-    <div class="hero-mascot-desktop" style="display: flex; align-items: center; justify-content: center;">
-      <img src="{{ 'groovy-character.png' | asset_url }}" 
-           alt="Groovy Character" 
-           width="360" 
-           height="382"
-           loading="lazy" />
-    </div>
   </div>
   
   <!-- Mobile Mascot Image (positioned absolutely) -->
@@ -71,7 +63,9 @@
 @media (max-width: 750px) {
   .hero-section {
     margin-top: -100px !important;
-    background-position: left center !important;
+  }
+  .hero-section img[alt="Groovy Books Hero Background"] {
+    object-position: left center !important;
   }
   .hero-mascot-mobile {
     display: block;
@@ -93,14 +87,6 @@
 @media (min-width: 751px) {
   .hero-mascot-mobile {
     display: none;
-  }
-  .hero-mascot-desktop {
-    display: flex !important;
-  }
-}
-@media (max-width: 750px) {
-  .hero-mascot-desktop {
-    display: none !important;
   }
 }
 </style>
