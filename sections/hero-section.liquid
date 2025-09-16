@@ -46,14 +46,23 @@
 </div>
 
     </div>
-    <!-- Optimized Mascot Image -->
-    <img src="{{ 'groovy-character.png' | asset_url }}" 
-         alt="Groovy Character" 
-         class="hero-mascot-mobile" 
-         width="180" 
-         height="191"
-         loading="lazy" />
+    <!-- Desktop Mascot Image (hidden on mobile) -->
+    <div class="hero-mascot-desktop" style="display: flex; align-items: center; justify-content: center;">
+      <img src="{{ 'groovy-character.png' | asset_url }}" 
+           alt="Groovy Character" 
+           width="360" 
+           height="382"
+           loading="lazy" />
     </div>
+  </div>
+  
+  <!-- Mobile Mascot Image (positioned absolutely) -->
+  <img src="{{ 'groovy-character.png' | asset_url }}" 
+       alt="Groovy Character" 
+       class="hero-mascot-mobile" 
+       width="180" 
+       height="191"
+       loading="lazy" />
     <!-- Kein Bild mehr hier, da es als Hintergrund dient -->
   </div>
 </div>
@@ -84,6 +93,14 @@
 @media (min-width: 751px) {
   .hero-mascot-mobile {
     display: none;
+  }
+  .hero-mascot-desktop {
+    display: flex !important;
+  }
+}
+@media (max-width: 750px) {
+  .hero-mascot-desktop {
+    display: none !important;
   }
 }
 </style>
