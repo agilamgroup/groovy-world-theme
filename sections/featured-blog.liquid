@@ -1,4 +1,14 @@
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign posts_displayed = section.settings.blog.articles_count
+  if section.settings.post_limit <= section.settings.blog.articles_count or section.settings.post_limit <= 4
+    assign posts_exceed_limit = true
+    assign posts_displayed = section.settings.post_limit
+  endif
+-%}
+{%- if posts_displayed > 1 -%}
+  <link rel="preload" as="style" href="{{ 'component-slider.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+{%- endif -%}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-featured-blog.css' | asset_url | stylesheet_tag }}
@@ -17,13 +27,6 @@
   }
 {%- endstyle -%}
 
-{%- liquid
-  assign posts_displayed = section.settings.blog.articles_count
-  if section.settings.post_limit <= section.settings.blog.articles_count or section.settings.post_limit <= 4
-    assign posts_exceed_limit = true
-    assign posts_displayed = section.settings.post_limit
-  endif
--%}
 <div class="blog color-{{ section.settings.color_scheme }} gradient{% if section.settings.heading == blank %} no-heading{% endif %}">
   <div class="page-width-desktop isolate{% if posts_displayed < 3 %} page-width-tablet{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.heading == blank -%}

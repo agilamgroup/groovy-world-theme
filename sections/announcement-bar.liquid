@@ -1,5 +1,11 @@
-{{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
-{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+{%- if section.blocks.size > 1 -%}
+  <link rel="preload" as="style" href="{{ 'component-slideshow.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="{{ 'component-slider.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
+    {{ 'component-slider.css' | asset_url | stylesheet_tag }}
+  </noscript>
+{%- endif -%}
 
 {%- liquid
   assign social_icons = true
