@@ -6,11 +6,7 @@
 <div class="hero-section" style="min-height: 100vh; background: rgb(var(--color-background)); display: flex; align-items: center; padding: 40px 20px; position: relative; overflow: hidden;">
   <!-- Optimized Hero Background Image -->
   <img 
-    src="{{ 'hero_web.png' | image_url: width: 960 }}"
-    srcset="{{ 'hero_web.png' | image_url: width: 640 }} 640w,
-            {{ 'hero_web.png' | image_url: width: 960 }} 960w,
-            {{ 'hero_web.png' | image_url: width: 1280 }} 1280w"
-    sizes="(max-width: 768px) 100vw, 960px"
+    src="{{ 'hero_web.png' | asset_url }}"
     alt="Groovy Books Hero Background"
     width="960" 
     height="600"
