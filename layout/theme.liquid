@@ -37,6 +37,9 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Preahvihear&display=swap">
     </noscript>
 
+    <!-- Preload LCP hero image -->
+    <link rel="preload" as="image" href="{{ 'hero_web.png' | asset_url }}">
+
     {% comment %}<title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
