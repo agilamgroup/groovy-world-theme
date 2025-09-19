@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Preahvihear&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* Google Fonts loaded centrally in layout/theme.liquid */
 
 :root {
   --alpha-button-background: 1;
@@ -10,7 +8,7 @@
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
-  --font-body-family: 'Preahvihear', sans-serif;
+  --font-body-family: 'Poppins', Arial, sans-serif;
   --font-heading-family: 'Preahvihear', sans-serif;
   --font-body-size: 1.3rem;
   --font-body-size-large: 1.5rem;
@@ -3665,7 +3663,7 @@ details-disclosure > details {
 }
 
 .hero-title {
-  font-family: 'Fredoka', 'Preahvihear', Arial, sans-serif;
+  font-family: 'Preahvihear', Arial, sans-serif;
   font-size: clamp(3rem, 8vw, 6.5rem);
   font-weight: 700;
   color: #2465aa;
