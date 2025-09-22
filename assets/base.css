@@ -2373,6 +2373,18 @@ input[type='checkbox'] {
 #shopify-section-17562885878412a6a4 .jdgm-carousel-wrapper {
   background: transparent !important;
 }
+/* JDGM: remove title container gap completely and pull widget up */
+#shopify-section-17562885878412a6a4 .jdgm-carousel-title,
+#shopify-section-17562885878412a6a4 .jdgm-carousel__title,
+#shopify-section-17562885878412a6a4 .jdgm-title {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#shopify-section-17562885878412a6a4 .jdgm-widget { 
+  margin-top: -16px !important; 
+}
 #shopify-section-ratings_heading {
   padding: 40px 20px 0 20px;
 }
