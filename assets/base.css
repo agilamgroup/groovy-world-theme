@@ -2349,6 +2349,15 @@ input[type='checkbox'] {
 #shopify-section-17562885878412a6a4 {
   background-color: #f0f8fd !important;
 }
+#shopify-section-ratings_heading .gradient,
+#shopify-section-17562885878412a6a4 .gradient {
+  background-color: #f0f8fd !important;
+}
+/* Ensure app wrapper doesn't paint white background */
+#shopify-section-17562885878412a6a4 .jdgm-widget,
+#shopify-section-17562885878412a6a4 .jdgm-carousel-wrapper {
+  background: transparent !important;
+}
 #shopify-section-ratings_heading {
   padding: 40px 20px 0 20px;
 }
