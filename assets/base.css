@@ -2318,6 +2318,23 @@ input[type='checkbox'] {
   min-height: 3.8rem;
 }
 
+/* Better vertical centering for tablet/mobile */
+@media screen and (max-width: 989px) {
+  .announcement-bar,
+  .announcement-bar__announcement {
+    min-height: 3.2rem;
+    align-items: center;
+  }
+  .announcement-bar__message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    min-height: 3.2rem;
+    line-height: 1.3;
+  }
+}
+
 .announcement-bar-slider--fade-in-next .announcement-bar__message,
 .announcement-bar-slider--fade-in-previous .announcement-bar__message,
 .announcement-bar-slider--fade-out-next .announcement-bar__message,
