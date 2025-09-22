@@ -19,6 +19,12 @@
         "button_link": "#books"
       }
     },
+    "benefits_heading": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"text-align:center; margin: 18px 0 8px 0;\"><span style=\"display:inline-block; font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #ff6b35; border: 2px solid #ff6b35; border-radius: 20px; padding: 4px 18px; letter-spacing: 1px; background: #fff; font-weight: 600;\">BENEFITS</span></div><h2 style=\"text-align:center; font-family: 'Preahvihear', sans-serif; font-size: 2.4rem; color: #2d5da1; margin: 0 0 10px 0;\">Our Promises to You</h2>"
+      }
+    },
     "multicolumn_6E4FAJ": {
       "type": "multicolumn",
       "blocks": {
@@ -73,6 +79,12 @@
         "padding_bottom": 0
       }
     },
+    "ratings_heading": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div style=\"text-align:center; margin: 18px 0 8px 0;\"><span style=\"display:inline-block; font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #ff6b35; border: 2px solid #ff6b35; border-radius: 20px; padding: 4px 18px; letter-spacing: 1px; background: #fff; font-weight: 600;\">REVIEWS</span></div><h2 style=\"text-align:center; font-family: 'Preahvihear', sans-serif; font-size: 2.4rem; color: #2d5da1; margin: 0 0 10px 0;\">Ratings</h2>"
+      }
+    },
     "17562885878412a6a4": {
       "type": "apps",
       "blocks": {
@@ -112,7 +124,9 @@
   },
   "order": [
     "hero_section",
+    "benefits_heading",
     "multicolumn_6E4FAJ",
+    "ratings_heading",
     "17562885878412a6a4",
     "latest_books_8DHdaw",
     "features_section",
