@@ -1,11 +1,11 @@
-<section class="reviews-section section gradient" style="background:#f0f8fd; padding: 40px 0 12px 0;">
+<section class="reviews-section section gradient" style="background:#f0f8fd; padding: 50px 0;">
   <div class="page-width">
-    <div style="text-align:center; margin: 0 0 6px 0;">
+    <div style="text-align:center; margin-bottom: 18px;">
       <span style="display:inline-block; font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #ff6b35; border: 2px solid #ff6b35; border-radius: 20px; padding: 4px 18px; letter-spacing: 1px; background: #fff; font-weight: 600;">{{ section.settings.badge | default: 'REVIEWS' }}</span>
     </div>
-    <h2 style="text-align:center; font-family: 'Preahvihear', sans-serif; font-size: 2.4rem; color: #2d5da1; margin: 0 0 6px 0;">{{ section.settings.title | default: 'Let customers speak for us' }}</h2>
+    <h2 style="text-align:center; font-family: 'Preahvihear', sans-serif; font-size: 2.4rem; color: #2d5da1; margin: 0 0 10px 0;">{{ section.settings.title | default: 'Let customers speak for us' }}</h2>
     {% if section.settings.subtitle != blank %}
-      <p style="text-align:center; font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #666; margin: 0 0 10px 0;">{{ section.settings.subtitle }}</p>
+      <p style="text-align:center; font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #666; margin: 0 0 60px 0;">{{ section.settings.subtitle }}</p>
     {% endif %}
   </div>
 
@@ -19,8 +19,16 @@
     .reviews-section .jdgm-carousel-title,
     .reviews-section .jdgm-carousel__title,
     .reviews-section .jdgm-title { display:none !important; height:0!important; margin:0!important; padding:0!important; }
-    /* small gap between subtitle and stars */
-    .reviews-section .jdgm-widget, .reviews-section .jdgm-carousel-wrapper { margin-top: 12px !important; padding-top: 0 !important; background: transparent !important; }
+    /* align spacing to Latest Books: gap comes from subtitle's 60px margin */
+    .reviews-section .jdgm-widget, .reviews-section .jdgm-carousel-wrapper { margin-top: 0 !important; padding-top: 0 !important; background: transparent !important; }
+
+    /* Responsive padding to mirror Latest Books */
+    @media (max-width: 768px) {
+      .reviews-section { padding: 35px 0 !important; }
+    }
+    @media (max-width: 480px) {
+      .reviews-section { padding: 25px 0 !important; }
+    }
   </style>
 </section>
 
