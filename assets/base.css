@@ -2347,7 +2347,7 @@ input[type='checkbox'] {
 /* Reviews section with same light-blue background as features */
 #shopify-section-ratings_heading,
 #shopify-section-17562885878412a6a4 {
-  background: #f0f8fd;
+  background-color: #f0f8fd !important;
 }
 #shopify-section-ratings_heading {
   padding: 40px 20px 0 20px;
