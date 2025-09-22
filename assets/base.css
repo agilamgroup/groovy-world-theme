@@ -2146,8 +2146,9 @@ input[type='checkbox'] {
 /* Mobile-specific positioning */
 @media screen and (max-width: 749px) {
   .utility-bar {
-    position: relative;
+    position: sticky;
     top: 0;
+    z-index: 1001; /* ensure above header */
   }
 }
 

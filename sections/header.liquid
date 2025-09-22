@@ -104,17 +104,14 @@
   }
 
   @media (max-width: 989px) {
+    /* Let the announcement bar sit above the header on mobile.
+       Avoid fixed header overlaying the blue bar. */
     .header-wrapper {
-      position: fixed !important;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      z-index: 1000;
+      position: relative !important;
+      z-index: auto;
       background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-    body {
-      padding-top: 70px !important;
+      box-shadow: none;
+      width: 100%;
     }
     .header__burger-menu { display: block !important; margin-left: auto !important; }
     .header__nav { display: none !important; }
