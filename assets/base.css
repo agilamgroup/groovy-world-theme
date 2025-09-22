@@ -1,3 +1,10 @@
+#shopify-section-17562885878412a6a4 .gradient,
+.section:has(.jdgm-widget) {
+  background-color: #f0f8fd !important;
+}
+.section:has(.jdgm-widget) {
+  padding-bottom: 50px;
+}
 /* Google Fonts loaded centrally in layout/theme.liquid */
 
 :root {
