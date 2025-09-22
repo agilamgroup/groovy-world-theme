@@ -2325,6 +2325,14 @@ input[type='checkbox'] {
     min-height: 3.2rem;
     align-items: center;
   }
+  /* Center entire blue bar content vertically */
+  .utility-bar {
+    display: flex;
+    align-items: center;
+  }
+  .utility-bar__grid {
+    align-items: center;
+  }
   .announcement-bar__message {
     display: flex;
     align-items: center;
