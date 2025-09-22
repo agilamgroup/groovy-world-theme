@@ -211,7 +211,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   margin-top: var(--spacing-sections-mobile);
 }
 /* Remove global section gap specifically between Reviews heading and JDGM app */
-#shopify-section-ratings_heading.section + #shopify-section-17562885878412a6a4.section {
+#shopify-section-ratings_heading + #shopify-section-17562885878412a6a4 {
   margin-top: 0 !important;
 }
 
@@ -219,7 +219,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   .section + .section {
     margin-top: var(--spacing-sections-desktop);
   }
-  #shopify-section-ratings_heading.section + #shopify-section-17562885878412a6a4.section {
+  #shopify-section-ratings_heading + #shopify-section-17562885878412a6a4 {
     margin-top: 0 !important;
   }
 }
