@@ -82,7 +82,7 @@
     "ratings_heading": {
       "type": "custom-liquid",
       "settings": {
-        "custom_liquid": "<div style=\"text-align:center; margin: 18px 0 8px 0;\"><span style=\"display:inline-block; font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #ff6b35; border: 2px solid #ff6b35; border-radius: 20px; padding: 4px 18px; letter-spacing: 1px; background: #fff; font-weight: 600;\">REVIEWS</span></div><h2 style=\"text-align:center; font-family: 'Preahvihear', sans-serif; font-size: 2.4rem; color: #2d5da1; margin: 0 0 10px 0;\">Let customers speak for us</h2><p style=\"text-align:center; font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #666; margin: 0 0 22px 0;\">Honest feedback from real families using Groovy every day. Read what they love most.</p>"
+        "custom_liquid": "<div style=\"text-align:center; margin: 18px 0 8px 0;\"><span style=\"display:inline-block; font-family: 'Preahvihear', sans-serif; font-size: 1rem; color: #ff6b35; border: 2px solid #ff6b35; border-radius: 20px; padding: 4px 18px; letter-spacing: 1px; background: #fff; font-weight: 600;\">REVIEWS</span></div><h2 style=\"text-align:center; font-family: 'Preahvihear', sans-serif; font-size: 2.4rem; color: #2d5da1; margin: 0 0 10px 0;\">Let customers speak for us</h2><p style=\"text-align:center; font-family: 'Poppins', sans-serif; font-size: 1.2rem; color: #666; margin: 0 0 12px 0;\">Honest feedback from real families using Groovy every day. See what they love most.</p><style>.jdgm-carousel-title{display:none!important}.jdgm-carousel,.jdgm-carousel-wrapper{margin-top:8px!important}</style>"
       }
     },
     "17562885878412a6a4": {
@@ -99,7 +99,7 @@
         "judge_me_reviews_featured_carousel_jD4p36"
       ],
       "settings": {
-        "include_margins": true
+        "include_margins": false
       }
     },
     "latest_books_8DHdaw": {
