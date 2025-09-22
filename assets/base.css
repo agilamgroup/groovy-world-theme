@@ -12,7 +12,7 @@
 }
 /* Remove any bottom gap on heading section and top gap on app section */
 #shopify-section-ratings_heading { margin-bottom: 0 !important; padding-bottom: 0 !important; }
-#shopify-section-17562885878412a6a4 { margin-top: -1px !important; }
+#shopify-section-17562885878412a6a4 { margin-top: -24px !important; padding-top: 0 !important; }
 /* Google Fonts loaded centrally in layout/theme.liquid */
 
 :root {
