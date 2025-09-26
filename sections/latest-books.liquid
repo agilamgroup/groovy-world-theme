@@ -36,7 +36,7 @@
             onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.07)';"
           >
             <!-- Produktbild -->
-            <a href="{{ product.url }}" style="display: block; margin-bottom: 16px;">
+            <a href="{{ product.url }}" style="display: block; margin-bottom: 16px; position: relative;">
               {{
                 product.featured_image
                 | image_url: width: 470
@@ -47,13 +47,13 @@
                   alt: product.title,
                   style: 'width: 170px; height: 230px; object-fit: cover; border-radius: 6px; border: 3px solid #2d5da1; background: #fff;'
               }}
+              {% assign product_title_down = product.title | downcase %}
+              {% if product_title_down == 'alphabet & number writing bundle for preschool kids' %}
+                <span style="position: absolute; left: 8px; bottom: 8px; background: #fff7e0; color: #c67c00; font-family: 'Preahvihear', sans-serif; font-size: 0.95rem; border-radius: 12px; padding: 2px 10px; font-weight: 700; border: 1.5px solid #f0d48a;">Bestseller</span>
+              {% endif %}
             </a>
             <!-- Status-Badges -->
             <div style="position: absolute; left: 18px; top: 18px; display: flex; gap: 8px;">
-              {% assign product_title_down = product.title | downcase %}
-              {% if product_title_down == 'alphabet & number writing bundle for preschool kids' %}
-                <span style="background: #fff7e0; color: #c67c00; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 700; border: 1.5px solid #f0d48a;">Bestseller</span>
-              {% endif %}
               {% if product.available %}
                 <span style="background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Available</span>
                 {% if product.compare_at_price > product.price %}
