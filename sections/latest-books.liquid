@@ -65,7 +65,7 @@
             {% if product.available %}
               <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
                 {% if product.compare_at_price > product.price %}
-                  <span style="text-decoration: line-through; color: #888; font-size: 1rem;">{{ product.compare_at_price | money_with_currency }}</span>
+                  <span style="text-decoration: line-through; color: #888; font-size: 1.3rem;">{{ product.compare_at_price | money_with_currency }}</span>
                   <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
                 {% else %}
                   <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
