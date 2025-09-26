@@ -57,13 +57,14 @@
     </div>
   </div>
   
-  <!-- Mobile Mascot Image (positioned absolutely) -->
-  <img src="{{ 'groovy-character.png' | asset_url }}" 
-       alt="Groovy Character" 
+  <!-- Mobile Visual (replacing mascot) -->
+  <img src="{{ 'Groovyphotos8.jpeg' | asset_url }}" 
+       alt="Groovy Featured" 
        class="hero-mascot-mobile" 
-       width="180" 
-       height="191"
-       loading="lazy" decoding="async" />
+       width="220" 
+       height="220"
+       loading="lazy" decoding="async" 
+       style="border-radius: 12px; border: 3px solid #ffffff; box-shadow: 0 8px 24px rgba(0,0,0,0.15); object-fit: cover;" />
     <!-- Kein Bild mehr hier, da es als Hintergrund dient -->
   </div>
 </div>
@@ -81,7 +82,7 @@
     position: absolute;
     bottom: 40px;
     right: 10px;
-    width: 180px;
+    width: 220px;
     max-width: 90vw;
     z-index: 1;
   }
