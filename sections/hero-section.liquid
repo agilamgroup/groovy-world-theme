@@ -78,13 +78,7 @@
     object-position: left center !important;
   }
   .hero-mascot-mobile {
-    display: block;
-    position: absolute;
-    bottom: 36px;
-    right: 12px;
-    width: 200px;
-    max-width: 90vw;
-    z-index: 1;
+    display: none;
   }
   .hero-buttons {
     flex-direction: column !important;
@@ -96,7 +90,13 @@
 }
 @media (min-width: 751px) {
   .hero-mascot-mobile {
-    display: none;
+    display: block;
+    position: absolute;
+    right: 60px;
+    bottom: 50px;
+    width: 320px;
+    max-width: 35vw;
+    z-index: 2;
   }
 }
 </style>
