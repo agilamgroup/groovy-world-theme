@@ -66,11 +66,18 @@
               <div style="font-family: 'Preahvihear', sans-serif; font-size: 1.3rem; color: #222; margin-bottom: 10px; text-align: center; font-weight: 600;">
                 {% if product.compare_at_price > product.price %}
                   <span style="text-decoration: line-through; color: #888; font-size: 1.3rem;">{{ product.compare_at_price | money_with_currency }}</span>
-                  <span style="margin-left: 6px; color: #ff6b35; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
+                  <span style="margin-left: 6px; color: #ff2d2d; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
                 {% else %}
                   <span style="color: #222; font-weight: 700; font-size: 1.3rem;">{{ product.price | money_with_currency }}</span>
                 {% endif %}
               </div>
+              {% if product.available and product.compare_at_price > product.price %}
+                {% assign discount_amount = product.compare_at_price | minus: product.price %}
+                {% assign discount_percent = discount_amount | times: 100 | divided_by: product.compare_at_price | round %}
+                <div style="font-family: 'Poppins', sans-serif; font-size: 0.95rem; color: #1abc9c; text-align: center; margin-top: -4px;">
+                  Save {{ discount_percent }}%
+                </div>
+              {% endif %}
             {% endif %}
             <!-- Buttons - nur bei verfügbaren Produkten -->
             {% if product.available %}
