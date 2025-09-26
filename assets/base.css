@@ -3762,7 +3762,7 @@ details-disclosure > details {
 
 .hero-title {
   font-family: 'Preahvihear', Arial, sans-serif;
-  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-size: clamp(2.8rem, 7vw, 6rem);
   font-weight: 700;
   color: #2465aa;
   line-height: 1.05;
