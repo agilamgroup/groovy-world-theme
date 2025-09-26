@@ -75,7 +75,7 @@
                 {% assign discount_amount = product.compare_at_price | minus: product.price %}
                 {% assign discount_percent = discount_amount | times: 100 | divided_by: product.compare_at_price | round %}
                 <div style="text-align: center; margin: 6px 0 14px 0;">
-                  <span style="display: inline-block; background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; border-radius: 999px; padding: 4px 12px; font-weight: 700; border: 1.5px solid #1abc9c;">Save {{ discount_percent }}%</span>
+                  <span style="display: inline-block; background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; border-radius: 999px; padding: 4px 12px; font-weight: 700; border: 1.5px solid #1abc9c;">Today Only - Save {{ discount_percent }}%</span>
                 </div>
               {% endif %}
             {% endif %}
