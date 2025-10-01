@@ -16,7 +16,7 @@
   <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: row; gap: 60px; align-items: center; width: 100%; position: relative; z-index: 2;">
     <div style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; background: rgba(255,255,255,0.0);">
       <!-- Badge -->
-      <div style="display: inline-block; padding: 8px 16px; border: 2px solid #ff6b35; border-radius: 20px; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; background: transparent;">
+      <div class="hero-badge" style="display: inline-block; padding: 8px 16px; border: 2px solid #ff6b35; border-radius: 20px; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; background: transparent;">
         Ready, Set, Write with Groovy
       </div>
       <!-- Title -->
@@ -72,6 +72,9 @@
 @media (max-width: 750px) {
   .hero-section {
     margin-top: 0 !important;
+  }
+  .hero-badge {
+    display: none !important;
   }
   .hero-section img[alt="Groovy Books Hero Background"] {
     object-position: left center !important;
