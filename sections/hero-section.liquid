@@ -46,7 +46,7 @@
         
         <!-- Amazon Button -->
         <a href="https://a.co/d/gbRrozO" class="amazon-btn" rel="noopener nofollow" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; background: #232f3e; color: #fff; text-decoration: none; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-weight: 600; font-size: 1.2rem; transition: all 0.2s ease; width: fit-content;">
-          <img src="{{ 'amazon.svg' | asset_url }}" alt="Amazon" style="height: 1.3em; width: auto; display: block;"/>
+          <img src="{{ 'amazon.svg' | asset_url }}" alt="Amazon" style="height: 1.4em; width: auto; display: block;"/>
           Get it on Amazon
         </a>
 
@@ -105,10 +105,14 @@
     width: 75% !important;
   }
 }
+/* hover/active feedback */
+.explore-books-btn, .amazon-btn { transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease, color .15s ease; }
+.explore-books-btn:hover, .amazon-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.12); }
+.explore-books-btn:active, .amazon-btn:active { transform: translateY(0); box-shadow: 0 3px 8px rgba(0,0,0,0.12); }
 /* subtle hover for amazon button */
 .amazon-btn:hover { background: #1e2632; }
 /* ensure logo scales with text and never exceeds button content height */
-.amazon-btn img { height: 1.3em; width: auto; }
+.amazon-btn img { height: 1.4em; width: auto; }
 </style>
 
 {% schema %}
