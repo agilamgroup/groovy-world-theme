@@ -46,6 +46,7 @@
         
         <!-- Amazon Button -->
         <a href="https://a.co/d/gbRrozO" class="amazon-btn" rel="noopener nofollow" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; background: #232f3e; color: #fff; text-decoration: none; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-weight: 600; font-size: 1.2rem; transition: all 0.2s ease; width: fit-content;">
+          <img src="{{ 'amazon.svg' | asset_url }}" alt="Amazon" style="height: 1.3em; width: auto; display: block;"/>
           Get it on Amazon
         </a>
 
@@ -106,6 +107,8 @@
 }
 /* subtle hover for amazon button */
 .amazon-btn:hover { background: #1e2632; }
+/* ensure logo scales with text and never exceeds button content height */
+.amazon-btn img { height: 1.3em; width: auto; }
 </style>
 
 {% schema %}
