@@ -38,8 +38,13 @@
             <path d="M5,13H16.17l-4.88,4.88a1.008,1.008,0,0,0,0,1.42,1,1,0,0,0,1.41,0l6.59-6.59a1,1,0,0,0,0-1.41L12.71,4.7A1,1,0,1,0,11.3,6.11L16.17,11H5a1,1,0,0,0,0,2Z"/>
           </svg>
         </a>
-
         
+        <!-- Amazon Button -->
+        <a href="https://a.co/d/gbRrozO" class="amazon-btn" rel="noopener nofollow" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; background: #232f3e; color: #fff; text-decoration: none; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-weight: 600; font-size: 1.2rem; transition: all 0.2s ease; width: fit-content;">
+          <img src="{{ 'amazon.svg' | asset_url }}" alt="Amazon" width="84" style="display:block; height:auto;"/>
+          Get it on Amazon
+        </a>
+
       </div>
 
     </div>
@@ -95,6 +100,8 @@
     width: 75% !important;
   }
 }
+/* subtle hover for amazon button */
+.amazon-btn:hover { background: #1e2632; }
 </style>
 
 {% schema %}
