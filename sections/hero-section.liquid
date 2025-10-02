@@ -101,43 +101,7 @@
     width: 75% !important;
   }
 }
-/* Reduce Judge.me rating size only in hero */
-.hero-rating .jdgm-all-reviews-rating,
-.hero-rating .jdgm-rev-widg__summary {
-  font-size: 0.95rem !important;
-  line-height: 1.2 !important;
-}
-.hero-rating .jdgm-all-reviews-rating__stars,
-.hero-rating .jdgm-rev-widg__summary-stars {
-  gap: 2px !important;
-}
-.hero-rating .jdgm-star {
-  width: 14px !important;
-  height: 14px !important;
-}
-.hero-rating .jdgm-star svg {
-  width: 14px !important;
-  height: 14px !important;
-}
-.hero-rating .jdgm-all-reviews-rating__text,
-.hero-rating .jdgm-rev-widg__summary-text {
-  font-size: 0.95rem !important;
-}
-/* Generic fallback in case class names differ per widget type */
-.hero-rating {
-  line-height: 1.1;
-}
-.hero-rating * {
-  vertical-align: middle;
-}
-.hero-rating [class*="jdgm"] {
-  transform: scale(0.85);
-  transform-origin: left top;
-}
-.hero-rating [class*="jdgm"] svg {
-  width: 14px !important;
-  height: 14px !important;
-}
+/* (Reverted) Use default Judge.me sizing in hero */
 </style>
 
 {% schema %}
