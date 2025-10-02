@@ -2366,11 +2366,37 @@ input[type='checkbox'] {
     min-height: 3.2rem;
     line-height: 1.3;
   }
+  .announcement-bar__message .ann-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* left-align each line */
+  }
   .announcement-bar__message .ann-item {
     display: block;
     width: auto;
     text-align: left;
   }
+  /* Hide mobile stacked list by default; show only on small screens */
+  .ann-mobile-stack {
+    display: none;
+  }
+}
+
+/* Only show the explicit mobile stack in small screens and hide the slider content via CSS (visual duplication prevention) */
+@media screen and (max-width: 749px) {
+  .ann-mobile-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center group */
+    gap: 2px;
+    padding: 0.4rem 1rem 0.6rem;
+  }
+  .ann-mobile-stack .ann-item {
+    width: auto;
+    text-align: left;
+  }
+  /* Visually suppress slider slides on mobile when we show stacked text */
+  .announcement-bar .announcement-bar-slider { display: none; }
 }
 
 /* Reviews section with same light-blue background as features */
