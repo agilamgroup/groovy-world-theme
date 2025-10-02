@@ -113,9 +113,15 @@
       box-shadow: none;
       width: 100%;
     }
-    .header__burger-menu { display: block !important; margin-left: auto !important; }
+    .header__burger-menu { display: flex !important; align-items: center; margin-left: auto !important; }
     .header__nav { display: none !important; }
     .header__cta { display: none !important; }
+  }
+  /* Align burger button to 40px like the 40px logo height */
+  @media (max-width: 768px) {
+    .header__icon,
+    .header__icon--menu { height: 40px; width: 40px; }
+    .header__icon .icon { height: 20px; width: 20px; }
   }
   @media (min-width: 990px) {
     .header__burger-menu { display: none !important; }
