@@ -2368,8 +2368,8 @@ input[type='checkbox'] {
   }
   .announcement-bar__message .ann-item {
     display: block;
-    width: 100%;
-    text-align: center;
+    width: auto;
+    text-align: left;
   }
 }
 
