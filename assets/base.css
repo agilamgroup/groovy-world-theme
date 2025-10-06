@@ -926,10 +926,10 @@ summary::-webkit-details-marker {
   margin-top: 0;
 }
 /* Force the first Benefits title to wrap: respect newline in title */
+/* Reset forced wrapping for benefit title */
 .multicolumn .multicolumn-list__item:first-child h3.inline-richtext {
-  display: inline-block;
-  white-space: pre-line; /* honor \n in title */
-  max-width: 22ch; /* accommodate longer second line while keeping two lines */
+  white-space: normal;
+  max-width: none;
 }
 
 .subtitle {
