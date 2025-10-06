@@ -232,7 +232,8 @@
   }
 }
 
-#shopify-section-multicolumn_6E4FAJ .multicolumn-list__item .multicolumn-card {
+#shopify-section-multicolumn_6E4FAJ .multicolumn-list__item .multicolumn-card,
+#shopify-section-multicolumn_6E4FAJ .multicolumn-list__item .content-container {
   background: #f0f8fd !important; /* light blue like Reviews */
   border: 1px solid rgba(36, 101, 170, 0.12) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
