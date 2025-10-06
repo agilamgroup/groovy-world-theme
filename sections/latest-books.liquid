@@ -51,7 +51,6 @@
             <!-- Status-Badges -->
             <div style="position: absolute; left: 18px; top: 18px; display: flex; gap: 8px;">
               {% if product.available %}
-                <span style="background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 600;">Available</span>
                 {% if product.compare_at_price > product.price %}
                   <span style="background: #ffeaea; color: #ff2d2d; font-family: 'Preahvihear', sans-serif; font-size: 1rem; border-radius: 12px; padding: 2px 14px; font-weight: 700; border: 1.5px solid #ff2d2d;">Sale</span>
                 {% endif %}
@@ -79,7 +78,7 @@
                 {% assign discount_amount = product.compare_at_price | minus: product.price %}
                 {% assign discount_percent = discount_amount | times: 100 | divided_by: product.compare_at_price | round %}
                 <div style="text-align: center; margin: 6px 0 14px 0;">
-                  <span style="display: inline-block; background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; border-radius: 999px; padding: 4px 12px; font-weight: 700; border: 1.5px solid #1abc9c;">Today Only - Save {{ discount_percent }}%</span>
+                  <span style="display: inline-block; background: #e6fcf5; color: #1abc9c; font-family: 'Preahvihear', sans-serif; font-size: 1.1rem; border-radius: 999px; padding: 4px 12px; font-weight: 700; border: 1.5px solid #1abc9c;">Limited Time Offer - Save {{ discount_percent }}%</span>
                 </div>
               {% endif %}
             {% endif %}
@@ -91,16 +90,16 @@
                    onmouseout="this.style.background='#ffffff'; this.style.color='#ff6b35'; this.style.transform='none';">Buy Now</a>
                 {%- render 'buy-buttons', product: product, product_form_id: 'product-form-latest-books-' | append: forloop.index, section_id: section.id -%}
                 <div class="card-trust-lines" style="margin-top: 8px; font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: #2d5da1; display: grid; gap: 4px;">
-                  <div style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span>🚚</span>
+                  <div style="display: inline-flex; align-items: center; gap: 8px;">
+                    <span class="svg-wrapper" style="width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center;">{{ 'icon-truck.svg' | inline_asset_content }}</span>
                     <span>Free Shipping Across Canada</span>
                   </div>
-                  <div style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span>✅</span>
+                  <div style="display: inline-flex; align-items: center; gap: 8px;">
+                    <span class="svg-wrapper" style="width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center;">{{ 'icon-check-mark.svg' | inline_asset_content }}</span>
                     <span>30-Day Risk-Free Trial</span>
                   </div>
-                  <div style="display: inline-flex; align-items: center; gap: 6px;">
-                    <span>👨‍👩‍👧</span>
+                  <div style="display: inline-flex; align-items: center; gap: 8px;">
+                    <span class="svg-wrapper" style="width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center;">{{ 'icon-heart.svg' | inline_asset_content }}</span>
                     <span>Trusted by Parents &amp; Teachers</span>
                   </div>
                 </div>
@@ -136,6 +135,11 @@
     max-width: 100% !important;
     margin-left: auto !important;
     margin-right: auto !important;
+  }
+  /* Make product cards as wide as the feature cards on mobile */
+  #latest-books .latest-books-grid > div[role="link"] {
+    width: 80% !important;
+    max-width: 300px !important;
   }
 }
 </style>
