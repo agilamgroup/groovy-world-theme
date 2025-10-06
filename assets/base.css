@@ -2472,6 +2472,18 @@ input[type='checkbox'] {
 #shopify-section-17562885878412a6a4 .jdgm-rev__content {
   text-align: left !important;
 }
+/* Fallback selectors to ensure white review cards apply regardless of JDGM markup variant */
+#shopify-section-17562885878412a6a4 .jdgm-carousel__item-inner,
+#shopify-section-17562885878412a6a4 .jdgm-rev-widg__reviews .jdgm-rev,
+#shopify-section-17562885878412a6a4 li.jdgm-carousel__item {
+  background: #fff !important;
+  border: 1px solid #e6ecf7 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06) !important;
+  padding: 16px 18px !important;
+  display: block !important;
+  overflow: hidden !important;
+}
 #shopify-section-ratings_heading {
   padding: 40px 20px 0 20px;
 }
