@@ -233,16 +233,18 @@
 }
 
 #shopify-section-multicolumn_6E4FAJ .multicolumn-list__item .multicolumn-card {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 0;
+  background: #f0f8fd; /* light blue like Reviews */
+  border: 1px solid rgba(36, 101, 170, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 28px;
   min-height: auto;
 }
 #shopify-section-multicolumn_6E4FAJ .multicolumn-card__info {
-  padding: 0 !important;
+  padding: 0 !important; /* card has padding */
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 #shopify-section-multicolumn_6E4FAJ h3.inline-richtext {
   font-family: 'Preahvihear', sans-serif;
@@ -250,23 +252,15 @@
   font-weight: 700;
   color: #2d5da1;
   line-height: 1.2;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
   margin: 0;
-  padding: 10px 16px;
-  background: #fff;
-  border: 1.5px solid #e3e9f8;
-  border-radius: 9999px;
-  box-shadow: 0 2px 10px rgba(31,63,135,0.06);
-}
-#shopify-section-multicolumn_6E4FAJ .multicolumn-list__item .multicolumn-card:hover h3.inline-richtext {
-  box-shadow: 0 4px 16px rgba(31,63,135,0.10);
-  transform: translateY(-1px);
+  padding: 0; /* remove pill */
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 @media (max-width: 749px) {
   #shopify-section-multicolumn_6E4FAJ h3.inline-richtext {
     font-size: 1.2rem;
-    padding: 9px 14px;
   }
 }
