@@ -925,9 +925,11 @@ summary::-webkit-details-marker {
 .title-wrapper--no-top-margin > .title {
   margin-top: 0;
 }
-/* Render newline in the first benefits block title as line break */
+/* Force the first Benefits title to wrap to two lines: "Free Shipping" / "Across Canada" */
 #shopify-section-multicolumn_6E4FAJ .multicolumn-list__item:first-child h3.inline-richtext {
-  white-space: pre-line;
+  display: inline-block;
+  max-width: 14ch; /* approx length of "Free Shipping" incl. space */
+  white-space: normal;
 }
 
 .subtitle {
