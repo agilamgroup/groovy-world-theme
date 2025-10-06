@@ -2408,6 +2408,13 @@ input[type='checkbox'] {
   }
 }
 
+/* Add small horizontal space between announcement items on larger screens */
+@media screen and (min-width: 750px) {
+  .announcement-bar__message .ann-item + .ann-item {
+    margin-left: 8px;
+  }
+}
+
 /* Only show the explicit mobile stack in small screens and hide the slider content via CSS (visual duplication prevention) */
 @media screen and (max-width: 749px) {
   .ann-mobile-stack {
