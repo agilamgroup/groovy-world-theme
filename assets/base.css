@@ -1,10 +1,5 @@
-#shopify-section-17562885878412a6a4 .gradient,
-.section:has(.jdgm-widget) {
+#shopify-section-17562885878412a6a4 .gradient {
   background-color: #f0f8fd !important;
-}
-.section:has(.jdgm-widget) {
-  padding-top: 0;
-  padding-bottom: 50px;
 }
 /* Remove inter-section gap between Reviews heading and widget section */
 #shopify-section-ratings_heading + .shopify-section { 
