@@ -2458,6 +2458,20 @@ input[type='checkbox'] {
   border: 0 !important;
   height: 0 !important;
 }
+#shopify-section-17562885878412a6a4 .jdgm-carousel__item,
+#shopify-section-17562885878412a6a4 .jdgm-rev {
+  background: #fff !important;
+  border: 1px solid #e6ecf7 !important;
+  border-radius: 16px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06) !important;
+  padding: 16px 18px !important;
+  overflow: hidden !important;
+}
+#shopify-section-17562885878412a6a4 .jdgm-rev__title,
+#shopify-section-17562885878412a6a4 .jdgm-rev__body,
+#shopify-section-17562885878412a6a4 .jdgm-rev__content {
+  text-align: left !important;
+}
 #shopify-section-ratings_heading {
   padding: 40px 20px 0 20px;
 }
