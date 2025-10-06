@@ -269,12 +269,13 @@
   font-weight: 700;
   color: #2d5da1;
   line-height: 1.2;
-  margin: 0;
-  padding: 0; /* remove pill */
-  background: transparent;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: block !important; /* span full card width for perfect alignment */
 }
 @media (max-width: 749px) {
   #shopify-section-multicolumn_6E4FAJ h3.inline-richtext {
