@@ -252,11 +252,7 @@
   border: 1px solid rgba(36, 101, 170, 0.12) !important;
   border-radius: 24px !important;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  padding: 18px 22px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 96px !important; /* equal height across all three */
+  padding: 0 !important; /* let the inner card control padding */
 }
 
 /* Attribute selector to match dynamic section IDs (in case of prefix differences) */
@@ -266,6 +262,25 @@
   background: #f0f8fd !important;
   border: 1px solid rgba(36, 101, 170, 0.12) !important;
   border-radius: 24px !important;
+}
+
+/* Strong centering and equal height on the inner card wrapper */
+#shopify-section-multicolumn_6E4FAJ .multicolumn-card.content-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100px !important;
+  padding: 18px 22px !important;
+}
+#shopify-section-multicolumn_6E4FAJ .multicolumn-card__content {
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+#shopify-section-multicolumn_6E4FAJ .multicolumn-card__info {
+  width: 100% !important;
 }
 #shopify-section-multicolumn_6E4FAJ h3.inline-richtext {
   font-family: 'Preahvihear', sans-serif;
