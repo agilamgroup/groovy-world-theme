@@ -925,6 +925,10 @@ summary::-webkit-details-marker {
 .title-wrapper--no-top-margin > .title {
   margin-top: 0;
 }
+/* Render newline in the first benefits block title as line break */
+#shopify-section-multicolumn_6E4FAJ .multicolumn-list__item:first-child h3.inline-richtext {
+  white-space: pre-line;
+}
 
 .subtitle {
   font-size: 1.8rem;
