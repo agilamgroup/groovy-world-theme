@@ -90,16 +90,16 @@
                    onmouseout="this.style.background='#ffffff'; this.style.color='#ff6b35'; this.style.transform='none';">Buy Now</a>
                 {%- render 'buy-buttons', product: product, product_form_id: 'product-form-latest-books-' | append: forloop.index, section_id: section.id -%}
                 <div class="card-trust-lines" style="margin-top: 8px; font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: #2d5da1; display: grid; gap: 4px;">
-                  <div style="display: inline-flex; align-items: center; gap: 8px;">
-                    <span class="svg-wrapper icon-benefit" style="display:inline-flex; align-items:center; justify-content:center;">{{ 'icon-truck.svg' | inline_asset_content }}</span>
+                  <div style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span>🚚</span>
                     <span>Free Shipping Across Canada</span>
                   </div>
-                  <div style="display: inline-flex; align-items: center; gap: 8px;">
-                    <span class="svg-wrapper icon-benefit" style="display:inline-flex; align-items:center; justify-content:center;">{{ 'icon-check-mark.svg' | inline_asset_content }}</span>
+                  <div style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span>✅</span>
                     <span>30-Day Risk-Free Trial</span>
                   </div>
-                  <div style="display: inline-flex; align-items: center; gap: 8px;">
-                    <span class="svg-wrapper icon-benefit" style="display:inline-flex; align-items:center; justify-content:center;">{{ 'icon-heart.svg' | inline_asset_content }}</span>
+                  <div style="display: inline-flex; align-items: center; gap: 6px;">
+                    <span>👨‍👩‍👧</span>
                     <span>Trusted by Parents &amp; Teachers</span>
                   </div>
                 </div>
