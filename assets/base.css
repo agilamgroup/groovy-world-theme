@@ -2436,6 +2436,14 @@ input[type='checkbox'] {
 #shopify-section-17562885878412a6a4 .gradient {
   background-color: #f0f8fd !important;
 }
+/* Product page: light-blue background only around the embedded JDGM widget card (not the whole section) */
+.product__info-container .shopify-app-block:has(.jdgm-widget),
+.product__info-container .shopify-app-block:has(.jdgm-carousel-wrapper) {
+  background: #f0f8fd !important;
+  border-radius: 16px !important;
+  padding: 16px !important;
+  margin-top: 16px !important;
+}
 /* Ensure app wrapper doesn't paint white background */
 #shopify-section-17562885878412a6a4 .jdgm-widget,
 #shopify-section-17562885878412a6a4 .jdgm-carousel-wrapper {
