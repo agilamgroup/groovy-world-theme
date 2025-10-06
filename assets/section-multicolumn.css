@@ -247,6 +247,13 @@
   justify-content: center;
   text-align: center;
 }
+#shopify-section-multicolumn_6E4FAJ .multicolumn-list__item {
+  background: #f0f8fd !important;
+  border: 1px solid rgba(36, 101, 170, 0.12) !important;
+  border-radius: 24px !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 24px !important;
+}
 #shopify-section-multicolumn_6E4FAJ h3.inline-richtext {
   font-family: 'Preahvihear', sans-serif;
   font-size: 1.3rem;
