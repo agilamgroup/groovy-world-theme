@@ -715,6 +715,14 @@ h3 .icon-arrow,
   width: 100%;
 }
 
+/* Color the inline SVG icons to match Benefits section styling */
+.icon-benefit svg path,
+.icon-benefit svg circle,
+.icon-benefit svg rect,
+.icon-benefit svg polygon {
+  fill: #2465aa; /* brand blue like Benefits section */
+}
+
 /* base-details-summary */
 summary {
   cursor: pointer;
