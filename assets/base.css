@@ -929,7 +929,7 @@ summary::-webkit-details-marker {
 .multicolumn .multicolumn-list__item:first-child h3.inline-richtext {
   display: inline-block;
   white-space: pre-line; /* honor \n in title */
-  max-width: 18ch; /* ensure wrap occurs even if \n is ignored */
+  max-width: 22ch; /* accommodate longer second line while keeping two lines */
 }
 
 .subtitle {
