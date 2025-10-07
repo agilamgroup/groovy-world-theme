@@ -61,9 +61,10 @@
         </a>
         
         <!-- Amazon Button -->
-        <a href="https://www.amazon.ca/s?me=ARBJZSTGM1WHE&marketplaceID=A2EUQ1WTGCTBG2" class="amazon-btn" rel="noopener nofollow" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; background: #232f3e; color: #fff; text-decoration: none; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-weight: 600; font-size: 1.2rem; transition: all 0.2s ease; width: fit-content;">
-          <img src="{{ 'amazon.svg' | asset_url }}" alt="Amazon" style="height: 1.4em; width: auto; display: block;"/>
-          Get it on Amazon
+        <a href="https://www.amazon.ca/s?me=ARBJZSTGM1WHE&marketplaceID=A2EUQ1WTGCTBG2" class="amazon-btn" rel="noopener nofollow" target="_blank" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; background: #232f3e; color: #fff; text-decoration: none; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-weight: 600; font-size: 1.3rem; transition: all 0.2s ease; width: fit-content;">
+          <img class="amazon-logo amazon-logo--rev" src="{{ 'available_at_amazon_en_horizontal_rev.png' | asset_url }}" alt="Buy on Amazon" style="height: 1.3rem; width: auto; display: block;"/>
+          <img class="amazon-logo amazon-logo--wht" src="{{ 'available_at_amazon_en_horizontal_wht.png' | asset_url }}" alt="Buy on Amazon" style="height: 1.3rem; width: auto; display: none;"/>
+          <span class="visually-hidden">Get it on Amazon</span>
         </a>
 
       </div>
@@ -124,7 +125,10 @@
 /* subtle hover for amazon button */
 .amazon-btn:hover { background: #1e2632; }
 /* ensure logo scales with text and never exceeds button content height */
-.amazon-btn img { height: 1.4em; width: auto; }
+.amazon-btn img { height: 1.3rem; width: auto; }
+.amazon-btn .amazon-logo--wht { display: none; }
+.amazon-btn:hover .amazon-logo--rev { display: none; }
+.amazon-btn:hover .amazon-logo--wht { display: block; }
 </style>
 
 {% schema %}
