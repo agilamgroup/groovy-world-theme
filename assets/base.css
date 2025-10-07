@@ -929,7 +929,8 @@ summary::-webkit-details-marker {
   max-width: none;
 }
 /* Ensure forced line breaks (\n) are respected in Benefits titles */
-#shopify-section-multicolumn_6E4FAJ h3.inline-richtext {
+/* Match dynamic section id for Benefits (multicolumn_6E4FAJ) and force newline rendering */
+[id^="shopify-section-"][id*="multicolumn_6E4FAJ"] h3.inline-richtext {
   white-space: pre-line !important;
 }
 
