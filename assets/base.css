@@ -928,6 +928,10 @@ summary::-webkit-details-marker {
   white-space: normal;
   max-width: none;
 }
+/* Ensure forced line breaks (\n) are respected in Benefits titles */
+#shopify-section-multicolumn_6E4FAJ h3.inline-richtext {
+  white-space: pre-line !important;
+}
 
 /* Benefits: render items in rounded boxes with reviews' light-blue background */
 #shopify-section-multicolumn_6E4FAJ .multicolumn-card.content-container {
