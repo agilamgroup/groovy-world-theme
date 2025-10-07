@@ -2441,15 +2441,7 @@ input[type='checkbox'] {
 #shopify-section-17562885878412a6a4 .gradient {
   background-color: #f0f8fd !important;
 }
-/* Product page: Light-blue background for bottom Judge.me apps section */
-#shopify-section-17562882121f337a00 {
-  background-color: #f0f8fd !important;
-}
-/* Robust fallback: on product pages, color any section that contains a JDGM widget */
-.template-product .shopify-section:has(.jdgm-widget),
-.template-product .shopify-section:has(.jdgm-carousel-wrapper) {
-  background-color: #f0f8fd !important;
-}
+/* Product page: Light-blue background for bottom Judge.me apps section — REMOVED per request */
 /* Ensure app wrapper doesn't paint white background */
 #shopify-section-17562885878412a6a4 .jdgm-widget,
 #shopify-section-17562885878412a6a4 .jdgm-carousel-wrapper {
@@ -2475,6 +2467,13 @@ input[type='checkbox'] {
   background: transparent !important;
   border: 0 !important;
   height: 0 !important;
+}
+
+/* Product page: color the "You may also like" (recommendations) section light-blue */
+#shopify-section-recommendations_LLhxXb,
+.template-product #product-recommendations,
+.template-product section#product-recommendations {
+  background-color: #f0f8fd !important;
 }
 #shopify-section-17562885878412a6a4 .jdgm-carousel__item,
 #shopify-section-17562885878412a6a4 .jdgm-rev {
