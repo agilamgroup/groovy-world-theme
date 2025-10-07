@@ -14,7 +14,7 @@
     decoding="async"
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
   <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: row; gap: 60px; align-items: center; width: 100%; position: relative; z-index: 2;">
-    <div style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; background: rgba(255,255,255,0.0);">
+    <div class="hero-left" style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; background: rgba(255,255,255,0.0);">
       <!-- Badge -->
       <div class="hero-badge" style="display: inline-block; padding: 8px 16px; border: 2px solid #ff6b35; border-radius: 20px; color: #ff6b35; font-family: 'Preahvihear', sans-serif; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; background: transparent;">
         Ready, Set, Write with Groovy
@@ -80,7 +80,7 @@
 @media (max-width: 750px) {
   .hero-section {
     margin-top: 0 !important;
-    padding-top: 72px !important; /* move content ~10px up */
+    padding-top: 64px !important; /* slightly reduce space above */
     align-items: flex-start !important; /* stop vertical centering */
     min-height: auto !important; /* avoid filling full viewport height */
   }
@@ -104,9 +104,10 @@
   }
   .hero-mobile-image {
     display: block !important;
-    margin: 8px 0 6px 0;
+    margin: 6px 0 4px 0; /* reduce spacing around image */
     max-width: 480px; /* cap width to prevent upscaling and pixelation */
   }
+  .hero-left { gap: 22px !important; } /* tighten vertical rhythm on mobile */
 }
 @media (min-width: 751px) {
   .hero-mascot-mobile {
