@@ -2445,6 +2445,11 @@ input[type='checkbox'] {
 #shopify-section-17562882121f337a00 {
   background-color: #f0f8fd !important;
 }
+/* Robust fallback: on product pages, color any section that contains a JDGM widget */
+.template-product .shopify-section:has(.jdgm-widget),
+.template-product .shopify-section:has(.jdgm-carousel-wrapper) {
+  background-color: #f0f8fd !important;
+}
 /* Ensure app wrapper doesn't paint white background */
 #shopify-section-17562885878412a6a4 .jdgm-widget,
 #shopify-section-17562885878412a6a4 .jdgm-carousel-wrapper {
