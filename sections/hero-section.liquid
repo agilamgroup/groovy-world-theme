@@ -37,10 +37,6 @@
       <!-- Mobile-only hero image injected between testimonial and buttons -->
       <div class="hero-mobile-image" style="display:none;">
         <picture>
-          <!-- Retina override: use high-res theme asset on high-DPI mobile screens -->
-          <source
-            media="(max-width: 750px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 750px) and (min-resolution: 192dpi)"
-            srcset="{{ 'hero_web.png' | asset_url }}">
           <source
             srcset="{{ 'hero-mobile.png' | file_img_url: width: 600, format: 'webp' }} 600w, {{ 'hero-mobile.png' | file_img_url: width: 900, format: 'webp' }} 900w, {{ 'hero-mobile.png' | file_img_url: width: 1200, format: 'webp' }} 1200w, {{ 'hero-mobile.png' | file_img_url: width: 1600, format: 'webp' }} 1600w, {{ 'hero-mobile.png' | file_img_url: width: 2000, format: 'webp' }} 2000w"
             sizes="(max-width: 750px) 100vw, 0"
