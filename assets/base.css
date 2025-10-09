@@ -2432,6 +2432,17 @@ input[type='checkbox'] {
   .announcement-bar .announcement-bar-slider { display: none; }
 }
 
+/* CLS: reserve aspect-ratio for mobile hero image */
+@media (max-width: 750px) {
+  .hero-mobile-image { aspect-ratio: 1200 / 686; }
+}
+
+/* CLS: ensure footer logo uses fixed dimensions consistently */
+.footer__logo-img { width: 203px; height: 50px; }
+
+/* CLS: JDGM rating row minimum height to avoid shifts */
+[id^="shopify-section-"][id*="reviews_section"] .jdgm-all-reviews-rating-wrapper { min-height: 28px; }
+
 /* Reviews section with same light-blue background as features */
 #shopify-section-ratings_heading,
 #shopify-section-17562885878412a6a4 {
