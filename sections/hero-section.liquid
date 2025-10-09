@@ -4,15 +4,18 @@
 {% endcomment %}
 
 <div class="hero-section" style="min-height: 100vh; background: rgb(var(--color-background)); display: flex; align-items: center; padding: 40px 20px; position: relative; overflow: hidden;">
-  <!-- Optimized Hero Background Image -->
-  <img 
-    src="{{ 'hero_web.png' | asset_url }}"
-    alt="Groovy Books Hero Background"
-    width="960" 
-    height="600"
-    fetchpriority="high"
-    decoding="async"
-    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+  <!-- Optimized Hero Background Image (WebP preferred, PNG fallback) -->
+  <picture>
+    <source srcset="{{ 'hero_web.webp' | asset_url }}" type="image/webp">
+    <img 
+      src="{{ 'hero_web.png' | asset_url }}"
+      alt="Groovy Books Hero Background"
+      width="960" 
+      height="600"
+      fetchpriority="high"
+      decoding="async"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+  </picture>
   <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: row; gap: 60px; align-items: center; width: 100%; position: relative; z-index: 2;">
     <div class="hero-left" style="display: flex; flex-direction: column; gap: 30px; max-width: 600px; background: rgba(255,255,255,0.0);">
       <!-- Badge -->
