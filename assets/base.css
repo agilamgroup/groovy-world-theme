@@ -2447,6 +2447,19 @@ input[type='checkbox'] {
 #shopify-section-17562885878412a6a4 .jdgm-carousel-wrapper {
   background: transparent !important;
 }
+/* Homepage: center Judge.me rating line (stars + text) under the reviews heading */
+.template-index .jdgm-carousel-title-and-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.template-index .jdgm-all-reviews-rating-wrapper {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto !important;
+}
 /* JDGM: remove title container gap completely and pull widget up */
 #shopify-section-17562885878412a6a4 .jdgm-carousel-title,
 #shopify-section-17562885878412a6a4 .jdgm-carousel__title,
