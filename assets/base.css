@@ -2475,6 +2475,22 @@ input[type='checkbox'] {
   gap: 6px !important;
   margin: 0 auto !important;
 }
+/* Homepage Reviews section (dynamic id contains "reviews_section"): force-center JDGM rating row and override app inline styles */
+[id^="shopify-section-"][id*="reviews_section"] .jdgm-carousel-title-and-link {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+  padding-left: 0 !important; /* override JDGM injected padding-left */
+}
+[id^="shopify-section-"][id*="reviews_section"] .jdgm-all-reviews-rating-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 auto !important;
+  text-align: center !important; /* override JDGM injected text-align */
+}
 /* JDGM: remove title container gap completely and pull widget up */
 #shopify-section-17562885878412a6a4 .jdgm-carousel-title,
 #shopify-section-17562885878412a6a4 .jdgm-carousel__title,
