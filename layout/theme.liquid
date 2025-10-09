@@ -37,8 +37,8 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Preahvihear&display=swap">
     </noscript>
 
-    <!-- Preload LCP hero image -->
-    <link rel="preload" as="image" href="{{ 'hero_web.png' | asset_url }}">
+    <!-- Preload LCP hero image (prefer WebP) -->
+    <link rel="preload" as="image" href="{{ 'hero_web.webp' | asset_url }}" type="image/webp">
 
     {% comment %}<title>
       {{ page_title }}
@@ -48,7 +48,11 @@
     </title>{% endcomment %}
 
     {% if page_description %}
-      {% comment %}<meta name="description" content="{{ page_description | escape }}">{% endcomment %}
+      <meta name="description" content="{{ page_description | escape }}">
+    {% else %}
+      {%- if request.page_type == 'index' -%}
+        <meta name="description" content="Groovy Books help kids learn handwriting with tactile, grooved tracing books loved by 1000+ families. Free shipping across Canada.">
+      {%- endif -%}
     {% endif %}
 
     {% render 'meta-tags' %}
