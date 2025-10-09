@@ -2443,6 +2443,9 @@ input[type='checkbox'] {
 /* CLS: JDGM rating row minimum height to avoid shifts */
 [id^="shopify-section-"][id*="reviews_section"] .jdgm-all-reviews-rating-wrapper { min-height: 28px; }
 
+/* CLS: ensure hero button group has minimum height across layouts */
+.hero-buttons { min-height: 60px; }
+
 /* Reviews section with same light-blue background as features */
 #shopify-section-ratings_heading,
 #shopify-section-17562885878412a6a4 {
