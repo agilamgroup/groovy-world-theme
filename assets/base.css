@@ -2460,6 +2460,21 @@ input[type='checkbox'] {
   gap: 6px;
   margin: 0 auto !important;
 }
+/* Stronger specificity: center JDGM header + row within the homepage reviews section */
+#shopify-section-17562885878412a6a4 .jdgm-carousel-header,
+#shopify-section-17562885878412a6a4 .jdgm-carousel-title-and-link {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+#shopify-section-17562885878412a6a4 .jdgm-all-reviews-rating-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  margin: 0 auto !important;
+}
 /* JDGM: remove title container gap completely and pull widget up */
 #shopify-section-17562885878412a6a4 .jdgm-carousel-title,
 #shopify-section-17562885878412a6a4 .jdgm-carousel__title,
