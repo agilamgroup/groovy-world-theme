@@ -41,11 +41,11 @@
       <div class="hero-mobile-image" style="display:none;">
         <picture>
           <source
-            srcset="{{ 'hero-mobile.png' | file_img_url: width: 400, format: 'webp' }} 400w, {{ 'hero-mobile.png' | file_img_url: width: 600, format: 'webp' }} 600w, {{ 'hero-mobile.png' | file_img_url: width: 800, format: 'webp' }} 800w"
+            srcset="{{ 'hero-mobile-1200.webp' | asset_url }} 1200w, {{ 'hero-mobile-1600.webp' | asset_url }} 1600w"
             sizes="(max-width: 750px) 100vw, 0"
             type="image/webp">
           <img
-            src="{{ 'hero-mobile.png' | file_img_url: width: 800 }}"
+            src="{{ 'hero-mobile-1200.jpg' | asset_url }}"
             alt="Groovy Books Hero Mobile"
             loading="lazy"
             decoding="async"
