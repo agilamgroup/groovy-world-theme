@@ -49,14 +49,6 @@
       {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
     </title>{% endcomment %}
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
-    {% else %}
-      {%- if request.page_type == 'index' -%}
-        <meta name="description" content="Groovy Books help kids learn handwriting with tactile, grooved tracing books loved by 1000+ families. Free shipping across Canada.">
-      {%- endif -%}
-    {% endif %}
-
     {% render 'meta-tags' %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
