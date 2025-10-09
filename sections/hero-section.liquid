@@ -6,7 +6,7 @@
 <div class="hero-section" style="min-height: 100vh; background: rgb(var(--color-background)); display: flex; align-items: center; padding: 40px 20px; position: relative; overflow: hidden;">
   <!-- Optimized Hero Background Image (WebP preferred, PNG fallback) -->
   <picture>
-    <source srcset="{{ 'hero_web.webp' | asset_url }}" type="image/webp">
+    <source srcset="{{ 'hero_web.webp' | asset_url }}" type="image/webp" sizes="(max-width: 750px) 100vw, 100vw">
     <img 
       src="{{ 'hero_web.png' | asset_url }}"
       alt="Groovy Books Hero Background"
@@ -53,7 +53,7 @@
         </picture>
       </div>
       <!-- Button -->
-      <div class="hero-buttons" style="display: flex; gap: 12px; flex-wrap: wrap;">
+      <div class="hero-buttons" style="display: flex; gap: 12px; flex-wrap: wrap; min-height: 56px;">
 
         <!-- Explore Books Button -->
         <a href="#latest-books" class="explore-books-btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #ff6b35; color: #ffffff; text-decoration: none; border-radius: 6px; font-family: 'Preahvihear', sans-serif; font-weight: 600; font-size: 1.3rem; transition: all 0.3s ease; width: fit-content;">
