@@ -1,9 +1,9 @@
 {% comment %} Market switcher: CA <-> US {% endcomment %}
 <localization-form>
-  {%- form 'localization', id: 'HeaderMarketForm', class: 'market-switcher' -%}
+  {%- form 'localization', class: 'market-switcher' -%}
     <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}">
-    <input type="hidden" name="country_code" id="HeaderCountryCode" value="{{ localization.country.iso_code }}">
-    <input type="hidden" name="return_to" id="HeaderReturnTo" value="{{ request.path }}{% if request.query_string != blank %}?{{ request.query_string }}{% endif %}">
+    <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+    <input type="hidden" name="return_to" value="{{ request.path }}{% if request.query_string != blank %}?{{ request.query_string }}{% endif %}">
 
     {%- assign current_iso = localization.country.iso_code -%}
     <nav class="market-switcher__links" aria-label="Select country or region">
@@ -25,10 +25,14 @@
 
 <script>
   (function() {
-    var form = document.getElementById('HeaderMarketForm');
+    var script = document.currentScript;
+    if (!script) return;
+    var container = script.previousElementSibling; // <localization-form>
+    if (!container) return;
+    var form = container.querySelector('form.market-switcher');
     if (!form) return;
-    var ret = document.getElementById('HeaderReturnTo');
-    var code = document.getElementById('HeaderCountryCode');
+    var ret = form.querySelector('input[name="return_to"]');
+    var code = form.querySelector('input[name="country_code"]');
     function setReturnTo() {
       try { if (ret) ret.value = window.location.pathname + window.location.search + window.location.hash; } catch(e) {}
     }
