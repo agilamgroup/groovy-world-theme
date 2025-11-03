@@ -1,0 +1,55 @@
+{% comment %} Market switcher: CA <-> US {% endcomment %}
+<localization-form>
+  {%- form 'localization', id: 'HeaderMarketForm', class: 'market-switcher' -%}
+    <label for="HeaderCountrySelect" class="visually-hidden">Country/region</label>
+    <input type="hidden" name="locale_code" value="{{ request.locale.iso_code }}">
+    <input type="hidden" name="return_to" value="{{ request.path }}{% if request.query_string != blank %}?{{ request.query_string }}{% endif %}">
+
+    <select id="HeaderCountrySelect" name="country_code" class="market-switcher__select">
+      {%- assign allowed = 'CA,US' | split: ',' -%}
+      {%- for country in localization.available_countries -%}
+        {%- if allowed contains country.iso_code -%}
+          <option value="{{ country.iso_code }}"{% if localization.country.iso_code == country.iso_code %} selected{% endif %}>
+            {{ country.name }} ({{ country.currency.iso_code }})
+          </option>
+        {%- endif -%}
+      {%- endfor -%}
+    </select>
+  {%- endform -%}
+</localization-form>
+
+<style>
+  .market-switcher { display:inline-flex; align-items:center; gap:.5rem; }
+  .market-switcher__select {
+    appearance: none; padding: .35rem .9rem; border:1px solid #d1d5db; border-radius: 6px;
+    font: inherit; background:#fff; color:#111827;
+  }
+  @media (max-width: 989px) { .market-switcher { width: 100%; } .market-switcher__select { width:100%; } }
+</style>
+
+<script>
+  (function() {
+    var form = document.getElementById('HeaderMarketForm');
+    var select = document.getElementById('HeaderCountrySelect');
+    if (!form || !select) return;
+
+    function setReturnTo() {
+      try {
+        var rt = form.querySelector('input[name="return_to"]');
+        if (!rt) return;
+        rt.value = window.location.pathname + window.location.search + window.location.hash;
+      } catch(e) {}
+    }
+
+    select.addEventListener('change', function() {
+      setReturnTo();
+      form.submit();
+    });
+
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) setReturnTo();
+    });
+  })();
+</script>
+
+
