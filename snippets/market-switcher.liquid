@@ -25,32 +25,30 @@
 
 <script>
   (function() {
-    var script = document.currentScript;
-    if (!script) return;
-    var container = script.previousElementSibling; // <localization-form>
-    if (!container) return;
-    var form = container.querySelector('form.market-switcher');
-    if (!form) return;
-    var ret = form.querySelector('input[name="return_to"]');
-    var code = form.querySelector('input[name="country_code"]');
-    function setReturnTo() {
-      try { if (ret) ret.value = window.location.pathname + window.location.search + window.location.hash; } catch(e) {}
-    }
-    function submitWith(country) {
-      if (!code) return;
-      code.value = country;
-      setReturnTo();
-      form.submit();
-    }
-    var links = form.querySelectorAll('.market-switcher__link');
-    links.forEach(function(a){
-      a.addEventListener('click', function(e){
-        e.preventDefault();
-        var c = a.getAttribute('data-code');
-        if (c) submitWith(c);
+    var forms = document.querySelectorAll('form.market-switcher');
+    if (!forms || !forms.length) return;
+    forms.forEach(function(form){
+      var ret = form.querySelector('input[name="return_to"]');
+      var code = form.querySelector('input[name="country_code"]');
+      function setReturnTo() {
+        try { if (ret) ret.value = window.location.pathname + window.location.search + window.location.hash; } catch(e) {}
+      }
+      function submitWith(country) {
+        if (!code) return;
+        code.value = country;
+        setReturnTo();
+        form.submit();
+      }
+      var links = form.querySelectorAll('.market-switcher__link');
+      links.forEach(function(a){
+        a.addEventListener('click', function(e){
+          e.preventDefault();
+          var c = a.getAttribute('data-code');
+          if (c) submitWith(c);
+        });
       });
+      document.addEventListener('visibilitychange', function(){ if (!document.hidden) setReturnTo(); });
     });
-    document.addEventListener('visibilitychange', function(){ if (!document.hidden) setReturnTo(); });
   })();
 </script>
 
