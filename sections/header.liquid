@@ -547,6 +547,55 @@
   </script>
 {%- endif -%}
 
+<script>
+  // Runtime safeguard: ensure header/footer links stay in the current market (e.g., /en-us)
+  (function() {
+    function getMarketPrefix() {
+      try {
+        var path = window.location.pathname || '/';
+        var segs = path.split('/');
+        var seg = (segs.length > 1) ? segs[1] : '';
+        if (/^[a-z]{2}-[a-z]{2}$/i.test(seg)) return '/' + seg;
+      } catch (e) {}
+      return '/';
+    }
+
+    function isInternal(href) {
+      return href && !href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('mailto:') && !href.startsWith('tel:');
+    }
+
+    function normalizeHref(href, prefix) {
+      if (!href) return href;
+      if (href.startsWith('#')) return prefix + href;
+      if (href.startsWith('//')) return href; // protocol-relative external
+      if (href.startsWith('/')) {
+        if (prefix !== '/' && !href.startsWith(prefix + '/')) return prefix + href;
+      }
+      return href;
+    }
+
+    function applyMarketPrefix() {
+      var prefix = getMarketPrefix();
+      if (!prefix || prefix === '/') return; // CA stays root
+      var selectors = [
+        '.header__nav a',
+        '.menu-drawer__menu a',
+        '.header__cta a',
+        'footer a'
+      ];
+      var anchors = document.querySelectorAll(selectors.join(','));
+      anchors.forEach(function(a) {
+        var href = a.getAttribute('href');
+        if (!isInternal(href)) return;
+        var next = normalizeHref(href, prefix);
+        if (next !== href) a.setAttribute('href', next);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', applyMarketPrefix);
+  })();
+  </script>
+
 {% schema %}
 {
   "name": "t:sections.header.name",
