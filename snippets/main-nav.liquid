@@ -1,30 +1,36 @@
 {% assign nav_mode = mode | default: 'desktop' %}
 {% if nav_mode == 'drawer' %}
 <ul class="menu-drawer__menu list-menu">
-  <li><a href="/#hero" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Home</a></li>
-  <li><a href="/#latest-books" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Books</a></li>
-  <li><a href="/#reasons" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Why Groovy?</a></li>
-  <li><a href="/#faq" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">FAQ</a></li>
-  <li><a href="/blogs/news" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Blog</a></li>
-  <li><a href="/#contact" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Contact</a></li>
-  <li><a href="/collections/all" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
+  <li><a href="{{ routes.root_url }}#hero" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Home</a></li>
+  <li><a href="{{ routes.root_url }}#latest-books" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Books</a></li>
+  <li><a href="{{ routes.root_url }}#reasons" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Why Groovy?</a></li>
+  <li><a href="{{ routes.root_url }}#faq" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">FAQ</a></li>
+  {% capture blog_path %}/blogs/news{% endcapture %}
+  <li><a href="{% if routes.root_url == '/' %}{{ blog_path }}{% else %}{{ routes.root_url }}{{ blog_path }}{% endif %}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Blog</a></li>
+  <li><a href="{{ routes.root_url }}#contact" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Contact</a></li>
+  {% capture shop_path %}/collections/all{% endcapture %}
+  <li><a href="{% if routes.root_url == '/' %}{{ shop_path }}{% else %}{{ routes.root_url }}{{ shop_path }}{% endif %}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset">Shop</a></li>
   <li>
-    <a href="/cart" class="menu-drawer__menu-item list-menu__item link link--text focus-inset" id="mobile-menu-cart-link">
+    {% capture cart_path %}/cart{% endcapture %}
+    <a href="{% if routes.root_url == '/' %}{{ cart_path }}{% else %}{{ routes.root_url }}{{ cart_path }}{% endif %}" class="menu-drawer__menu-item list-menu__item link link--text focus-inset" id="mobile-menu-cart-link">
       Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
     </a>
   </li>
 </ul>
 {% else %}
 <ul class="header__nav-list">
-  <li><a href="/#hero" class="header__nav-item">Home</a></li>
-  <li><a href="/#latest-books" class="header__nav-item">Books</a></li>
-  <li><a href="/#reasons" class="header__nav-item">Why Groovy?</a></li>
-  <li><a href="/#faq" class="header__nav-item">FAQ</a></li>
-  <li><a href="/blogs/news" class="header__nav-item">Blog</a></li>
-  <li><a href="/#contact" class="header__nav-item">Contact</a></li>
-  <li><a href="/collections/all" class="header__nav-item">Shop</a></li>
+  <li><a href="{{ routes.root_url }}#hero" class="header__nav-item">Home</a></li>
+  <li><a href="{{ routes.root_url }}#latest-books" class="header__nav-item">Books</a></li>
+  <li><a href="{{ routes.root_url }}#reasons" class="header__nav-item">Why Groovy?</a></li>
+  <li><a href="{{ routes.root_url }}#faq" class="header__nav-item">FAQ</a></li>
+  {% capture blog_path %}/blogs/news{% endcapture %}
+  <li><a href="{% if routes.root_url == '/' %}{{ blog_path }}{% else %}{{ routes.root_url }}{{ blog_path }}{% endif %}" class="header__nav-item">Blog</a></li>
+  <li><a href="{{ routes.root_url }}#contact" class="header__nav-item">Contact</a></li>
+  {% capture shop_path %}/collections/all{% endcapture %}
+  <li><a href="{% if routes.root_url == '/' %}{{ shop_path }}{% else %}{{ routes.root_url }}{{ shop_path }}{% endif %}" class="header__nav-item">Shop</a></li>
   <li>
-    <a href="/cart" class="header__nav-item" id="main-menu-cart-link">
+    {% capture cart_path %}/cart{% endcapture %}
+    <a href="{% if routes.root_url == '/' %}{{ cart_path }}{% else %}{{ routes.root_url }}{{ cart_path }}{% endif %}" class="header__nav-item" id="main-menu-cart-link">
       Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}
     </a>
   </li>
