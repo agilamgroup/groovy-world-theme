@@ -279,7 +279,8 @@
   <header class="header">
     <!-- Logo -->
     <div class="header__logo">
-      {% assign _segs = request.path | split: '/' %}
+      {% assign _canon_path = canonical_url | remove: request.origin %}
+      {% assign _segs = _canon_path | split: '/' %}
       {% assign market_root = '/' %}
       {% if _segs.size > 1 and _segs[1] != blank and _segs[1] contains '-' %}
       {% assign market_root = '/' | append: _segs[1] %}

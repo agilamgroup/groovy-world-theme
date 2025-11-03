@@ -1,5 +1,6 @@
 {% assign nav_mode = mode | default: 'desktop' %}
-{% assign __segs = request.path | split: '/' %}
+{% assign __canon_path = canonical_url | remove: request.origin %}
+{% assign __segs = __canon_path | split: '/' %}
 {% assign market_root = '/' %}
 {% if __segs.size > 1 and __segs[1] != blank and __segs[1] contains '-' %}
 {% assign market_root = '/' | append: __segs[1] %}
