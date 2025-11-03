@@ -279,7 +279,12 @@
   <header class="header">
     <!-- Logo -->
     <div class="header__logo">
-      <a href="{{ routes.root_url }}" class="header__heading-link">
+      {% assign _segs = request.path | split: '/' %}
+      {% assign market_root = '/' %}
+      {% if _segs.size > 1 and _segs[1] != blank and _segs[1] contains '-' %}
+      {% assign market_root = '/' | append: _segs[1] %}
+      {% endif %}
+      <a href="{{ market_root }}" class="header__heading-link">
         <img src="{{ 'groovy-logo.png' | asset_url }}" alt="Groovy Logo" class="header__logo-img" width="203" height="50" fetchpriority="low" decoding="async">
       </a>
     </div>
@@ -296,7 +301,7 @@
 
     <!-- CTA Button -->
     <div class="header__cta">
-      <a href="{{ routes.root_url }}#contact" class="header__cta-button">Get in Touch</a>
+      <a href="{{ market_root }}#contact" class="header__cta-button">Get in Touch</a>
     </div>
   </header>
 </{{ header_tag }}>

@@ -150,15 +150,20 @@
     </div>
 
 <!-- Policy Links im Footer nebeneinander -->
+{% assign _segs_f = request.path | split: '/' %}
+{% assign market_root = '/' %}
+{% if _segs_f.size > 1 and _segs_f[1] != blank and _segs_f[1] contains '-' %}
+{% assign market_root = '/' | append: _segs_f[1] %}
+{% endif %}
 <div style="display: flex; justify-content: center; gap: 24px; margin-top: 16px; font-family: 'Preahvihear', sans-serif;">
   {% capture refund_path %}/policies/refund-policy{% endcapture %}
-  <a href="{% if routes.root_url == '/' %}{{ refund_path }}{% else %}{{ routes.root_url }}{{ refund_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Refund policy</a>
+  <a href="{% if market_root == '/' %}{{ refund_path }}{% else %}{{ market_root }}{{ refund_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Refund policy</a>
   {% capture privacy_path %}/policies/privacy-policy{% endcapture %}
-  <a href="{% if routes.root_url == '/' %}{{ privacy_path }}{% else %}{{ routes.root_url }}{{ privacy_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Privacy policy</a>
+  <a href="{% if market_root == '/' %}{{ privacy_path }}{% else %}{{ market_root }}{{ privacy_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Privacy policy</a>
   {% capture terms_path %}/policies/terms-of-service{% endcapture %}
-  <a href="{% if routes.root_url == '/' %}{{ terms_path }}{% else %}{{ routes.root_url }}{{ terms_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Terms of service</a>
+  <a href="{% if market_root == '/' %}{{ terms_path }}{% else %}{{ market_root }}{{ terms_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Terms of service</a>
   {% capture legal_path %}/pages/legal{% endcapture %}
-  <a href="{% if routes.root_url == '/' %}{{ legal_path }}{% else %}{{ routes.root_url }}{{ legal_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Legal</a>
+  <a href="{% if market_root == '/' %}{{ legal_path }}{% else %}{{ market_root }}{{ legal_path }}{% endif %}" style="font-size: 1rem; color: #2d5da1; text-decoration: underline;">Legal</a>
 </div>
               
     <!-- Copyright -->
