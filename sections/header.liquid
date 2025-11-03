@@ -560,16 +560,33 @@
       return '/';
     }
 
-    function isInternal(href) {
-      return href && !href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('mailto:') && !href.startsWith('tel:');
+    function toPathAndHash(url) {
+      try {
+        var u = new URL(url, window.location.origin);
+        return u.pathname + (u.hash || '');
+      } catch (e) {
+        return url;
+      }
+    }
+
+    function isExternalAbsolute(href) {
+      return /^https?:\/\//i.test(href) && href.indexOf(window.location.host) === -1;
+    }
+
+    function startsWithPrefix(href, prefix) {
+      return href === prefix || href.startsWith(prefix + '/') || href.startsWith(prefix + '#');
     }
 
     function normalizeHref(href, prefix) {
       if (!href) return href;
+      // Same-origin absolute → path+hash
+      if (/^https?:\/\//i.test(href) && href.indexOf(window.location.host) !== -1) {
+        href = toPathAndHash(href);
+      }
       if (href.startsWith('#')) return prefix + href;
       if (href.startsWith('//')) return href; // protocol-relative external
       if (href.startsWith('/')) {
-        if (prefix !== '/' && !href.startsWith(prefix + '/')) return prefix + href;
+        if (prefix !== '/' && !startsWithPrefix(href, prefix)) return prefix + href;
       }
       return href;
     }
@@ -586,7 +603,7 @@
       var anchors = document.querySelectorAll(selectors.join(','));
       anchors.forEach(function(a) {
         var href = a.getAttribute('href');
-        if (!isInternal(href)) return;
+        if (!href || isExternalAbsolute(href)) return;
         var next = normalizeHref(href, prefix);
         if (next !== href) a.setAttribute('href', next);
       });
