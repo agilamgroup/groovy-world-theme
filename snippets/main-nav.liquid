@@ -1,9 +1,11 @@
 {% assign nav_mode = mode | default: 'desktop' %}
-{% assign __canon_path = canonical_url | remove: request.origin %}
-{% assign __segs = __canon_path | split: '/' %}
-{% assign market_root = '/' %}
-{% if __segs.size > 1 and __segs[1] != blank and __segs[1] contains '-' %}
-{% assign market_root = '/' | append: __segs[1] %}
+{% assign market_root = routes.root_url %}
+{% if market_root == '/' %}
+{% assign _lang = request.locale.iso_code | split: '-' | first | downcase %}
+{% assign _country = localization.country.iso_code | downcase %}
+{% if _lang != blank and _country != blank and _country != 'ca' %}
+{% assign market_root = '/' | append: _lang | append: '-' | append: _country %}
+{% endif %}
 {% endif %}
 {% if nav_mode == 'drawer' %}
 <ul class="menu-drawer__menu list-menu">

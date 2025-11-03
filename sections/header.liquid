@@ -279,11 +279,13 @@
   <header class="header">
     <!-- Logo -->
     <div class="header__logo">
-      {% assign _canon_path = canonical_url | remove: request.origin %}
-      {% assign _segs = _canon_path | split: '/' %}
-      {% assign market_root = '/' %}
-      {% if _segs.size > 1 and _segs[1] != blank and _segs[1] contains '-' %}
-      {% assign market_root = '/' | append: _segs[1] %}
+      {% assign market_root = routes.root_url %}
+      {% if market_root == '/' %}
+      {% assign _lang = request.locale.iso_code | split: '-' | first | downcase %}
+      {% assign _country = localization.country.iso_code | downcase %}
+      {% if _lang != blank and _country != blank and _country != 'ca' %}
+      {% assign market_root = '/' | append: _lang | append: '-' | append: _country %}
+      {% endif %}
       {% endif %}
       <a href="{{ market_root }}" class="header__heading-link">
         <img src="{{ 'groovy-logo.png' | asset_url }}" alt="Groovy Logo" class="header__logo-img" width="203" height="50" fetchpriority="low" decoding="async">
