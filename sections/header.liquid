@@ -610,6 +610,32 @@
     }
 
     document.addEventListener('DOMContentLoaded', applyMarketPrefix);
+
+    // Intercept clicks to enforce market prefix even if attributes were not yet normalized
+    document.addEventListener('click', function(e) {
+      var link = e.target && e.target.closest && e.target.closest('a');
+      if (!link) return;
+      // Limit to header/footer/menu links
+      if (!link.closest('.header__nav') && !link.closest('.menu-drawer__menu') && !link.closest('.header__cta') && !link.closest('footer')) return;
+      var prefix = getMarketPrefix();
+      if (!prefix || prefix === '/') return;
+      var href = link.getAttribute('href');
+      if (!href) return;
+      // Ignore external absolute links
+      if (/^https?:\/\//i.test(href) && href.indexOf(window.location.host) === -1) return;
+      // Normalize to path+hash for same-origin absolute
+      if (/^https?:\/\//i.test(href)) {
+        try { var u = new URL(href, window.location.origin); href = u.pathname + (u.hash || ''); } catch (ex) {}
+      }
+      // Build corrected URL
+      var corrected = href;
+      if (href.charAt(0) === '#') corrected = prefix + href;
+      else if (href.charAt(0) === '/' && !href.startsWith(prefix + '/') && !href.startsWith(prefix + '#')) corrected = prefix + href;
+      if (corrected !== href) {
+        e.preventDefault();
+        window.location.assign(corrected);
+      }
+    }, true);
   })();
   </script>
 
