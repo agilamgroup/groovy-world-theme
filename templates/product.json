@@ -47,7 +47,7 @@
           "settings": {
             "layout": "horizontal",
             "icon_1": "truck",
-            "heading_1": "Free Shipping in Canada",
+            "heading_1": "Free Shipping in Canada and the USA",
             "icon_2": "return",
             "heading_2": "30-Day Money-Back Guarantee",
             "icon_3": "heart",
@@ -71,7 +71,7 @@
         "text_LmwHex": {
           "type": "text",
           "settings": {
-            "text": "📦 Delivery within 2–5 business days across Canada",
+            "text": "📦 Delivery within 2–5 business days across Canada and the USA",
             "text_style": "body"
           }
         },
